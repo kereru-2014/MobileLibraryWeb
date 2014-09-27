@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta name="MobileLibrary" content="Library management for the future">
+        <link rel="icon" type="image/png" href="/web/favicon.ico" />
         <title>MobileLibrary</title>
         <!-- js library script refs -->
         <script type="text/javascript" src="/web/js/libraries/jquery-2.1.1.js"></script>
@@ -29,7 +30,10 @@
                         <div class='book-details' data-bind='value: image_url'></div>
                         <div id="dialog" title="Add Book">
                             <form data-bind="submit: newBook">
-                                <label for="title">Title:</label> <input type="text" name="title"> <label for="author">Author:</label> <input type="text" name="author"> <label for="ISBN">ISBN:</label> <input type="text" name="ISBN"> <button type="submit">Submit</button>
+                                <label for="title">Title:</label> <input type="text" name="title">
+                                <label for="author">Author:</label> <input type="text" name="author">
+                                <label for="ISBN">ISBN:</label> <input type="text" name="ISBN">
+                                <button type="submit">Submit</button>
                             </form>
                         </div>
                     </div>
