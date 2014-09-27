@@ -41,7 +41,7 @@ var BooksViewModel = function(){
   $.fn.serializeObject = function () {
     var o = {};
     var a = this.serializeArray();
-    $.each(a, function () {x
+    $.each(a, function () {
         if (o[this.name] !== undefined) {
             if (!o[this.name].push) {
                 o[this.name] = [o[this.name]];
@@ -55,12 +55,23 @@ var BooksViewModel = function(){
   };
 
   self.newBook.subscribe(function (data) {
+    console.log($(data).serializeObject());
     PersistBook($(data).serializeObject());
+
     // GetAllCustomers(mapJson);
   });
 
   self.addToBookList = function () {
       self.bookList.push(new Book("", "", ""));
+  };
+  function PersistBook(book) {
+    $.ajax("api/v1/books", {
+        data: ko.toJSON(book),
+        type: "post",
+        contentType: "application/json",
+        success: function() {alert("Book Added Successfully")}
+
+    });
   };
 };
 

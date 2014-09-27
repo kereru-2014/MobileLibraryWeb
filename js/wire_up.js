@@ -5,4 +5,5 @@ $(document).ready(function () {
     $(".modalButton").on('click', function() {
         $("#dialog").dialog("open");
     });
+
 });
