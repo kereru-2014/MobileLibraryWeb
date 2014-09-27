@@ -1,57 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <title>MobileLibrary</title>
-    <!-- js library script refs -->
-    <script type="text/javascript" src="/web/js/jquery-2.1.1.js" ></script>
-    <script type="text/javascript" src="/web/js/jquery-ui.js" ></script>
-        <script type="text/javascript" src="/web/js/knockout-3.2.0.js" ></script>
-
-    <!-- application js script refs -->
-    <script type="text/javascript" src="/web/js/app.js" ></script>
-    <script type="text/javascript" src="/web/js/wire_up.js" ></script>
-
-    <!-- css links -->
-    <link rel="stylesheet" href="/web/css/jquery-ui.css">
-    <link rel="stylesheet" href="/web/css/booklist.css">
-
-
-
-  </head>
-  <body>
-    <div id = 'wrap'>
-      <h1>Hello Juliet! This is your library </h1>
-        <div id='box'>
-
-          <div data-bind="foreach: books">
-            <div class='bookobject'>
-              <img data-bind='attr: {src: image_url}'/>
-              <div class='book-details' data-bind='value: title'/></div>
-              <div class='book-details' data-bind='value: author'/></div>
-              <div class='book-details' data-bind='value: ISBN'/></div>
-              <div class='book-details' data-bind='value: image_url'/></div>
+    <head>
+        <meta name="MobileLibrary" content="Library management for the future">
+        <title>MobileLibrary</title>
+        <!-- js library script refs -->
+        <script type="text/javascript" src="/web/js/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="/web/js/jquery-ui.js"></script>
+        <script type="text/javascript" src="/web/js/knockout-3.2.0.js"></script>
+        <!-- application js script refs -->
+        <script type="text/javascript" src="/web/js/app.js"></script>
+        <script type="text/javascript" src="/web/js/wire_up.js"></script>
+        <!-- css links -->
+        <link rel="stylesheet" href="/web/css/jquery-ui.css" type="text/css">
+        <link rel="stylesheet" href="/web/css/booklist.css" type="text/css">
+    </head>
+    <body>
+        <div id='wrap'>
+            <h1>
+                Hello Juliet! This is your library
+            </h1>
+            <div id='box'>
+                <div data-bind="foreach: bookList">
+                    <div class='bookobject'>
+                        <img data-bind='attr: {src: image_url}'>
+                        <div class='book-details' data-bind='value: title'></div>
+                        <div class='book-details' data-bind='value: author'></div>
+                        <div class='book-details' data-bind='value: ISBN'></div>
+                        <div class='book-details' data-bind='value: image_url'></div>
+                        <div id="dialog" title="Add Book">
+                            <form data-bind="submit: newBook">
+                                <label for="title">Title:</label> <input type="text" name="title"> <label for="author">Author:</label> <input type="text" name="author"> <label for="ISBN">ISBN:</label> <input type="text" name="ISBN"> <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class='buttonscontainer'>
+                        <div class="modalButton pure-u-4-5">
+                            <button id="addCustomer" class="pure-button">Add Book</button>
+                        </div><!-- <button data-bind='click: save, enable: books().length > 0' type='submit'>Save</button> -->
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div id="dialog" title="Add Book">
-            <form data-bind="submit: newBook">
-                <label for="title">Title:</label>
-                <input type="text" name="title" />
-                <label for="author">Author:</label>
-                <input type="text" name="author" />
-                <label for="ISBN">ISBN:</label>
-                <input type="text" name="ISBN" />
-                <button type="submit">Submit</button>
-              </form>
-          </div>
-
-      </div>
-    <div>
-      <div class='buttonscontainer'>
-         <!--  <button data-bind='click: addBook'>Add Book</button>
-          <button data-bind='click: save, enable: books().length > 0' type='submit'>Save</button> -->
-      </div>
-    </div>
-  </body>
+        </div>
+    </body>
 </html>
-
-

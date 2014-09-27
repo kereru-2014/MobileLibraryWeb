@@ -1,25 +1,27 @@
 var BooksViewModel = function(){
   var self = this;
-  self.books = ko.observableArray([]);
+  self.bookList = ko.observableArray([]);
+  self.newBook = ko.observable();
+
   $.getJSON("/api/v1/books/", function(data)
   {
     var initialData = ko.utils.arrayMap(data, function(book){
     return {not_fresh:true, id: book.id, title: book.title, author: book.author, ISBN: book.ISBN, image_url: book.image_url, lent_date: book.lent_date };
-  })
-    self.books(initialData);
+  });
+    self.bookList(initialData);
   });
 
-  self.addBook = function(){
-    self.books.push({
-      title:"",
-      author:"",
-      ISBN:"",
-      image_url:""
-    });
-  };
+  // self.addBook = function(){
+  //   self.books.push({
+  //     title:"",
+  //     author:"",
+  //     ISBN:"",
+  //     image_url:""
+  //   });
+  // };
 
   self.save = function(){
-    var book = self.books()[self.books().length -1]
+    var book = self.books()[self.books().length -1];
     var request = {book:book};
 
 
@@ -29,17 +31,17 @@ var BooksViewModel = function(){
     self.books(initialData);
   };
 
-  // $("#dialog").dialog({ autoOpen: false, draggable: false });
+  $("#dialog").dialog({ autoOpen: false, draggable: false });
 
-  // $("#dialog").submit(function () {
-  //   $(this).closest(".ui-dialog-content").dialog("close");
-  //   return false;
-  // });
+  $("#dialog").submit(function () {
+    $(this).closest(".ui-dialog-content").dialog("close");
+    return false;
+  });
 
   $.fn.serializeObject = function () {
     var o = {};
     var a = this.serializeArray();
-    $.each(a, function () {
+    $.each(a, function () {x
         if (o[this.name] !== undefined) {
             if (!o[this.name].push) {
                 o[this.name] = [o[this.name]];
@@ -53,8 +55,12 @@ var BooksViewModel = function(){
   };
 
   self.newBook.subscribe(function (data) {
-    AddBook($(data).serializeObject());
+    PersistBook($(data).serializeObject());
     // GetAllCustomers(mapJson);
   });
+
+  self.addToBookList = function () {
+      self.bookList.push(new Book("", "", ""));
+  };
 };
 
