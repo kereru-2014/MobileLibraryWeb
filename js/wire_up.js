@@ -6,8 +6,8 @@ $(document).ready(function () {
         $("#dialog").dialog("open");
     });
     $("#box").on('click','.bookobject', function(e) {
-      console.log(this($));
-      console.log(e.target+"and"+ $(e.target).attr('class'));
+      console.log($(this).children('.id').first().text());
+      console.log(e.target);
       // UpdateLendingInfo(e.target.id)
         // $("#dialogLendInfo").dialog("open");
 
