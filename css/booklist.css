@@ -18,6 +18,10 @@ html, body{
   float: left;
 }
 
+.book-details {
+  display: none;
+}
+
 #wrap h1{
   text-align: center;
 }
