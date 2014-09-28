@@ -11,7 +11,5 @@ $(document).ready(function () {
       console.log(bookId);
       // $("#dialogLendInfo").dialog("open");
       UpdateLendingInfo(bookId);
-
      });
-
 });
