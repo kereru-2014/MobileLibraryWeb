@@ -2,6 +2,7 @@ var BooksViewModel = function(){
   var self = this;
   self.bookList = ko.observableArray([]);
   self.newBook = ko.observable();
+  // self.updateLendingInfo = ko.observable();
 
   $.getJSON("/api/v1/books/", function(data)
   {
@@ -55,11 +56,15 @@ var BooksViewModel = function(){
   };
 
   self.newBook.subscribe(function (data) {
-    console.log($(data).serializeObject());
     PersistBook($(data).serializeObject());
-
     // GetAllCustomers(mapJson);
   });
+
+  // self.updateLendingInfo.subscribe(function (data) {
+  //   PersistBook($(data).serializeObject());
+  //   // GetAllCustomers(mapJson);
+  // });
+
 
   self.addToBookList = function () {
       self.bookList.push(new Book("", "", ""));
@@ -72,6 +77,19 @@ var BooksViewModel = function(){
         success: function() {alert("Book Added Successfully")}
 
     });
+
   };
+
+  function UpdateLendingInfo(id){
+    $.getJSON("/api/v1/books/" + id, function(data)
+      {
+        var initialData = ko.utils.arrayMap(data, function(book){
+        return {not_fresh:true, id: book.id, title: book.title, author: book.author, ISBN: book.ISBN, image_url: book.image_url, lent_date: book.lent_date };
+      });
+        self.bookList(initialData);
+      });
+      }
 };
+
+
 
