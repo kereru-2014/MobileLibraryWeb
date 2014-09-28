@@ -10,12 +10,19 @@
         <script type="text/javascript" src="/web/js/libraries/knockout-3.2.0.js"></script>
         <!-- application js script refs -->
         <script type="text/javascript" src="/web/js/app.js"></script>
+        <script type="text/javascript" src="/web/js/api_facade.js"></script>
         <script type="text/javascript" src="/web/js/wire_up.js"></script>
         <!-- css links -->
         <link rel="stylesheet" href="/web/css/jquery-ui.css" type="text/css">
         <link rel="stylesheet" href="/web/css/booklist.css" type="text/css">
+        <link rel="stylesheet" href="/web/css/nav.css" type="text/css">
     </head>
     <body>
+        <ul class="hmenu">
+            <%= render 'devise/menu/registration_items' %>
+            <%= render 'devise/menu/login_items' %>
+        </ul>
+        <%= yield %>
         <div id='wrap'>
             <h1>
                 Hello Juliet! This is your library
@@ -43,23 +50,17 @@
                 <div>
                     <div class='buttonscontainer'>
                         <div class="modalButton pure-u-4-5">
-                            <button id="newBook" class="pure-button">Add Book</button>
+                            <button id="addCustomer" class="pure-button">Add Book</button>
                         </div>
-
+                    </div>
                 <!--  <div id="dialogLendInfo" title="Change Lending Info">
                             <form data-bind="submit: newBook">
                                 <label for="title" data-bind='text: title'>Title:</label>
                                 <label for="author" data-bind='text: author'>Author:</label>
                                 <label for="lent_date" data-bind='lent_date'>Lent Date:</label>
-                                <!-- <button id="PersistBook" type="submit">Submit</button> -->
-                       <!--      </form>
-                        </div> --> -->
-
-
-
-
-
-                    </div>
+                                <button id="PersistBook" type="submit">Submit</button>
+                            </form>
+                        </div> -->
                 </div>
             </div>
         </div>
