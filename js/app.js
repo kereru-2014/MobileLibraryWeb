@@ -12,6 +12,7 @@ var BooksViewModel = function(){
     self.bookList(initialData);
   });
 
+
   // self.addBook = function(){
   //   self.books.push({
   //     title:"",
@@ -24,8 +25,6 @@ var BooksViewModel = function(){
   self.save = function(){
     var book = self.books()[self.books().length -1];
     var request = {book:book};
-
-
     console.log(request,book);
     $.post('/api/v1/books', request, function(data){
     });
@@ -60,36 +59,62 @@ var BooksViewModel = function(){
     // GetAllCustomers(mapJson);
   });
 
-  // self.updateLendingInfo.subscribe(function (data) {
+  // self.UpdateLendingInfo.subscribe(function (data) {
   //   PersistBook($(data).serializeObject());
   //   // GetAllCustomers(mapJson);
   // });
 
-
   self.addToBookList = function () {
       self.bookList.push(new Book("", "", ""));
   };
+
   function PersistBook(book) {
     $.ajax("api/v1/books", {
         data: ko.toJSON(book),
         type: "post",
         contentType: "application/json",
         success: function() {alert("Book Added Successfully")}
-
     });
-
   };
-
-  function UpdateLendingInfo(id){
-    $.getJSON("/api/v1/books/" + id, function(data)
-      {
-        var initialData = ko.utils.arrayMap(data, function(book){
-        return {not_fresh:true, id: book.id, title: book.title, author: book.author, ISBN: book.ISBN, image_url: book.image_url, lent_date: book.lent_date };
-      });
-        self.bookList(initialData);
-      });
-      }
 };
+
+$("#dialogLendInfo").dialog("open");
+$("#dialogLendInfo").dialog({ autoOpen: false, draggable: false });
+
+$("#dialogLendInfo").submit(function () {
+  $(this).closest(".ui-dialog-content").dialog("close");
+  return false;
+});
+
+function UpdateLendingInfo(bookId){
+  var self = this;
+  GetBookRecord(bookId);
+  console.log(this);
+}
+
+self.updateLend.subscribe(function (data) {
+    PatchBook($(data).serializeObject());
+});
+
+function PatchBook(book) {
+  $.ajax("api/v1/books", {
+      data: ko.toJSON(book),
+      type: "patch",
+      contentType: "application/json",
+      success: function() {alert("Book patched Successfully")}
+  });
+};
+
+function GetBookRecord(id){
+  $.getJSON("/api/v1/books/" + id, function(data) {
+      console.log(data);
+      var initialData = ko.utils.arrayMap(data, function(book){
+      return {not_fresh:true, id: book.id, title: book.title, author: book.author, ISBN: book.ISBN, image_url: book.image_url, lent_date: book.lent_date };
+    });
+      return initialData;
+  });
+};
+
 
 
 

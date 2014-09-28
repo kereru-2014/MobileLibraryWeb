@@ -5,11 +5,12 @@ $(document).ready(function () {
     $(".modalButton").on('click', function() {
         $("#dialog").dialog("open");
     });
-    $("#box").on('click','.bookobject', function(e) {
-      console.log($(this).children('.id').first().text());
-      console.log(e.target);
-      // UpdateLendingInfo(e.target.id)
-        // $("#dialogLendInfo").dialog("open");
+
+    $("#box").on('click','.bookobject', function() {
+      var bookId = ($(this).children('.id').first().text());
+      console.log(bookId);
+      // $("#dialogLendInfo").dialog("open");
+      UpdateLendingInfo(bookId);
 
      });
 
