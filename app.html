@@ -58,7 +58,35 @@
                         <div class='bookdetails' data-bind='text: author'></div>
                         <div class='bookdetails' data-bind='text: ISBN'></div>
                         <div class='bookdetails' data-bind='text: image_url'></div>
+<<<<<<< HEAD
                     </div>
+=======
+                        <div id="dialog" title="Add Book">
+                            <form data-bind="submit: newBook">
+                                <label for="title">Title:</label> <input type="text" name="title">
+                                <label for="author">Author:</label> <input type="text" name="author">
+                                <label for="ISBN">ISBN:</label> <input type="text" name="ISBN">
+                                <label for="image_url">Image:</label> <input type="text" name="image_url">
+                                <button id="persistNewBookButton" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class='buttonscontainer'>
+                        <div class="modalButton pure-u-4-5">
+                            <button id="addCustomer" class="pure-button">Add Book</button>
+                        </div>
+                    </div>
+                <!--  <div id="dialogLendInfo" title="Change Lending Info">
+                            <form data-bind="submit: newBook">
+                                <label for="title" data-bind='text: title'>Title:</label>
+                                <label for="author" data-bind='text: author'>Author:</label>
+                                <label for="lent_date" data-bind='lent_date'>Lent Date:</label>
+                                <button id="PersistBook" type="submit">Submit</button>
+                            </form>
+                        </div> -->
+>>>>>>> master
                 </div>
             </div>
         </div>
