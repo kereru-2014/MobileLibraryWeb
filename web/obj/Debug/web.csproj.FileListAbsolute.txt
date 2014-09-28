@@ -1,0 +1,6 @@
+C:\Users\Karen\Documents\GitHub\projects\MobileLibraryWeb\web\bin\MobileLibraryWeb.dll.config
+C:\Users\Karen\Documents\GitHub\projects\MobileLibraryWeb\web\bin\MobileLibraryWeb.dll
+C:\Users\Karen\Documents\GitHub\projects\MobileLibraryWeb\web\bin\MobileLibraryWeb.pdb
+C:\Users\Karen\Documents\GitHub\projects\MobileLibraryWeb\web\obj\Debug\web.csprojResolveAssemblyReference.cache
+C:\Users\Karen\Documents\GitHub\projects\MobileLibraryWeb\web\obj\Debug\MobileLibraryWeb.dll
+C:\Users\Karen\Documents\GitHub\projects\MobileLibraryWeb\web\obj\Debug\MobileLibraryWeb.pdb

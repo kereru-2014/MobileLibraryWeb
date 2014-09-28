@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta name="MobileLibrary" content="Library management for the future">
+    <link rel="icon" type="image/png" href="./favicon.ico" />
+    <title>MobileLibrary</title>
+    <!-- js library script refs -->
+    <script type="text/javascript" src="./js/libraries/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="./js/libraries/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/libraries/knockout-3.2.0.js"></script>
+    <!-- application js script refs -->
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/api_facade.js"></script>
+    <script type="text/javascript" src="./js/wire_up.js"></script>
+    <script type="text/javascript" src="./js/anonymousfunctions.js"></script>
+    <script type="text/javascript" src="./js/borrower.js"></script>
+
+    <!-- css links -->
+    <link rel="stylesheet" href="./css/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="./css/booklist.css" type="text/css">
+    <link rel="stylesheet" href="./css/nav.css" type="text/css">
+</head>
+<body>
+    <!--<ul class="hmenu">
+        <%= render 'devise/menu/registration_items' %>
+        <%= render 'devise/menu/login_items' %>
+    </ul>
+    <%= yield %>-->
+    <div id='wrap'>
+        <h1>
+            Hello Juliet! This is your library
+        </h1>
+        <div id='box'>
+            <div data-bind="foreach: bookList">
+                <div class="bookobject">
+                    <img data-bind='attr: {src: image_url}' height="105" width="77">
+                    <div class='book-details' data-bind='text: id'></div>
+                    <div class='book-details' data-bind='text: title'></div>
+                    <div class='book-details' data-bind='text: author'></div>
+                    <div class='book-details' data-bind='text: ISBN'></div>
+                    <div class='book-details' data-bind='text: image_url'></div>
+                    <div id="dialog" title="Add Book">
+                        <form data-bind="submit: newBook">
+                            <label for="title">Title:</label> <input type="text" name="title">
+                            <label for="author">Author:</label> <input type="text" name="author">
+                            <label for="ISBN">ISBN:</label> <input type="text" name="ISBN">
+                            <label for="image_url">Image:</label> <input type="text" name="image_url">
+                            <button id="persistNewBookButton" type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <!-- add this section for the new borrowers button -->
+                    <div id="dialogAddNewBorrower" title="Add Borrower">
+                        <form data-bind="submit: newBorrower">
+                            <label for="name">Name:</label> <input type="text" name="name">
+                            <label for="email">Email:</label> <input type="text" name="email">
+                            <label for="phone_number">Phone No:</label> <input type="text" name="phone_number">
+                            <button id="persistNewBorrowerButton" type="submit">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <div class='buttonscontainer'>
+                    <div class="modalButton pure-u-4-5">
+                        <button id="addCustomer" class="pure-button">Add Book</button>
+                    </div>
+                    <!-- Add this div to the html for the new borrower button -->
+                    <div class="modalButtonAddBorrower pure-u-4-5">
+                        <button id="addBorrower" class="pure-button">Add Borrower</button>
+                    </div>
+                </div>
+
+                <!--  <div id="dialogLendInfo" title="Change Lending Info">
+                            <form data-bind="submit: newBook">
+                                <label for="title" data-bind='text: title'>Title:</label>
+                                <label for="author" data-bind='text: author'>Author:</label>
+                                <label for="lent_date" data-bind='lent_date'>Lent Date:</label>
+                                <button id="PersistBook" type="submit">Submit</button>
+                            </form>
+                        </div> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
