@@ -2,11 +2,7 @@ var BooksViewModel = function(){
   var self = this;
   self.bookList = ko.observableArray([]);
   self.newBook = ko.observable();
-<<<<<<< HEAD
-  self.logout = ko.observable();
-=======
   // self.updateLendingInfo = ko.observable();
->>>>>>> master
 
   $.getJSON("/api/v1/books/", function(data)
   {
@@ -57,11 +53,6 @@ var BooksViewModel = function(){
         }
     });
     return o;
-  };
-
-  self.logout = function () {
-    console.log("logout method")
-    LogOut();
   };
 
   self.newBook.subscribe(function (data) {

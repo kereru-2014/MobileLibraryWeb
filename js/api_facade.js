@@ -1,16 +1,6 @@
 //put you api facade code in here
 
 // Load initial state from server, convert it to Task instances, then populate self.tasks
-function LogOut(){
-    console.log("you hit logout in api")
-        $.ajax("users/sign_out", {
-        type: "DELETE",
-        success: function(data) {
-            console.log(data);
-        }
-    });
-};
-
 function GetAllCustomers(callback) {
     $.getJSON("api/Customers", function (data) { callback(data); });
 };
