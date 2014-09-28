@@ -3,7 +3,7 @@ BooksViewModel = function(){
   self.bookList = ko.observableArray([]);
   self.newBook = ko.observable();
   // self.updateLendingInfo = ko.observable();
-
+  self.newBorrower = ko.observable();
   $.getJSON("/api/v1/books/", function(data)
   {
     var initialData = ko.utils.arrayMap(data, function(book){
@@ -36,6 +36,13 @@ BooksViewModel = function(){
   $("#dialog").submit(function () {
     $(this).closest(".ui-dialog-content").dialog("close");
     return false;
+  });
+
+  $("#dialogAddNewBorrower").dialog({ autoOpen: false, draggable: false });
+
+  $("#dialogAddNewBorrower").submit(function () {
+      $(this).closest(".ui-dialog-content").dialog("close");
+      return false;
   });
 
   $.fn.serializeObject = function () {

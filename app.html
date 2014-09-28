@@ -37,6 +37,14 @@
                     <button id="persistNewBookButton" type="submit">Submit</button>
                 </form>
             </div>
+                <div id="dialogAddNewBorrower" title="Add Borrower">
+                   <form data-bind="submit: newBorrower">
+                        <label for="name">Name:</label> <input type="text" name="name">
+                        <label for="email">Email:</label> <input type="text" name="email">
+                        <label for="phone_number">Phone No:</label> <input type="text" name="phone_number">
+                        <button id="persistNewBorrowerButton" type="submit">Submit</button>
+                    </form>
+                </div>
 <!--             <div id="dialogLendInfo" title="Change Lending Info">
                 <form data-bind="submit: updateLend">
                     <label for="title" data-bind='text: title'>Title:</label>

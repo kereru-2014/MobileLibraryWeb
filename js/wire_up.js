@@ -5,6 +5,9 @@ $(document).ready(function () {
     $(".modalButton").on('click', function() {
         $("#dialog").dialog("open");
     });
+    $(".modalButtonAddBorrower").on('click', function () {
+       $("#dialogAddNewBorrower").dialog("open");
+   });
 
     $("#box").on('click','.bookobject', function() {
       var bookId = ($(this).children('.id').first().text());
