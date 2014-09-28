@@ -10,12 +10,19 @@
         <script type="text/javascript" src="/web/js/libraries/knockout-3.2.0.js"></script>
         <!-- application js script refs -->
         <script type="text/javascript" src="/web/js/app.js"></script>
+        <script type="text/javascript" src="/web/js/api_facade.js"></script>
         <script type="text/javascript" src="/web/js/wire_up.js"></script>
         <!-- css links -->
         <link rel="stylesheet" href="/web/css/jquery-ui.css" type="text/css">
         <link rel="stylesheet" href="/web/css/booklist.css" type="text/css">
+        <link rel="stylesheet" href="/web/css/nav.css" type="text/css">
     </head>
     <body>
+        <ul class="hmenu">
+            <%= render 'devise/menu/registration_items' %>
+            <%= render 'devise/menu/login_items' %>
+        </ul>
+        <%= yield %>
         <div id='wrap'>
             <h1>
                 Hello Juliet! This is your library
@@ -42,8 +49,11 @@
                     <div class='buttonscontainer'>
                         <div class="modalButton pure-u-4-5">
                             <button id="addCustomer" class="pure-button">Add Book</button>
-                        </div><!-- <button data-bind='click: save, enable: books().length > 0' type='submit'>Save</button> -->
+                        </div>
                     </div>
+                </div>
+                <div class = 'nav'>
+                    <button data-bind='click: logout' class="pure-button">Log Out</button>
                 </div>
             </div>
         </div>
