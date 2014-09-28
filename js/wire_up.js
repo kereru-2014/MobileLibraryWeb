@@ -9,7 +9,6 @@ $(document).ready(function () {
     $("#box").on('click','.bookobject', function() {
       var bookId = ($(this).children('.id').first().text());
       console.log(bookId);
-      // $("#dialogLendInfo").dialog("open");
       UpdateLendingInfo(bookId);
      });
 });

@@ -1,4 +1,4 @@
-var BooksViewModel = function(){
+BooksViewModel = function(){
   var self = this;
   self.bookList = ko.observableArray([]);
   self.newBook = ko.observable();
