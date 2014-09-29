@@ -34,8 +34,15 @@
         });
 
         self.bookListWrapperSelector.on('click', '.bookobject', function () {
-            //var bookId = ($(this).children().first().val());
-            self.modalLendSelector.dialog("open");
+            var borrowerID = $("#lend_borrower_id").val();
+            console.log("outside if", borrowerID);
+            if(borrowerID == null || borrowerID == ""){
+                self.modalLendSelector.dialog("open");}
+             else
+             {
+                console.log("inside if",borrowerID);
+                alert("This borrower is not null");
+            }
         });
         self.modalLendSelector.dialog({ autoOpen: false, draggable: false });
         self.modalLendSelector.submit(function () {
