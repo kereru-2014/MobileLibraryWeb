@@ -11,16 +11,31 @@ function Book(data) {
     self.borrower_id = ko.observable(data.borrower_id);
 }
 
+function Borrower(data) {
+    var self = this;
+    self.id = ko.observable(data.Id);
+    self.name = ko.observable(data.name);
+    self.email = ko.observable(data.email);
+    self.phone_number = ko.observable(data.phone_number);
+ }
+
+
 function HomeViewModel() {
     var self = this;
     self.bookList = ko.observableArray([]);
     self.newBook = ko.observable();
+    self.newBorrower = ko.observable();
 
     GetAllBooks(mapJson);
 
     self.newBook.subscribe(function (data) {
         PersistBook($(data).serializeObject());
         GetAllBooks(mapJson);
+    });
+
+    self.newBorrower.subscribe(function (data) {
+        PersistBorrower($(data).serializeObject());
+
     });
 
     function mapJson(allData) {
