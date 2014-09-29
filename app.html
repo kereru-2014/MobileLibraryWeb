@@ -49,12 +49,10 @@
         </div>
         <div id="modalLend" title="Lend a Book">
            <form data-bind="submit: lendToBorrower">
-                    <input class='hide' id="lend_id"/>
-                    <input class='hide' id="lend_isbn"/>
-                    <input class='hide' id="lend_imgurl"/>
-                    <label>Title:</label><div id="lend_title"></div>
-                    <label>Author:</label><div id="lend_author"></div>
-                    <label>Borrower:</label><input id="lend_borrower_id"/>
+                    <input class='hide' id="lend_id" type="text" name="id"/>
+                    <label>Title:</label><div class="lend_title"></div>
+                    <label>Author:</label><div class="lend_author"></div>
+                    <label>Borrower:</label><input id="lend_borrower_id" type="text" name="borrower_id"/>
                     <img id="lend_img" height="105" width="77">
                 <button id="lendSubmit" type="submit">Submit</button>
             </form>

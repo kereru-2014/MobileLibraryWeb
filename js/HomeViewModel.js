@@ -28,7 +28,7 @@ function HomeViewModel() {
     self.lendToBorrower = ko.observable();
 
     self.lendToBorrower.subscribe(function (data){
-        console.log(data);
+        ApiLendBook($(data).serializeObject())
     });
 
     GetAllBooks(mapJson);
@@ -47,8 +47,8 @@ function HomeViewModel() {
         //self.lendToBorrower(bookJson);
         var obj = jQuery.parseJSON(bookJson);
         $("#lend_id").val(obj.id);
-        $("#lend_title").html(obj.title);
-        $("#lend_author").html(obj.author);
+        $(".lend_title").html(obj.title);
+        $(".lend_author").html(obj.author);
         $("#lend_isbn").val(obj.ISBN);
         $("#lend_imgurl").val(obj.image_url);
         $("#lend_borrower_id").val(obj.borrower_id);

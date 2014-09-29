@@ -38,8 +38,8 @@ function PersistBorrower(borrower) {
     })
 }
 
-function ApiLendBook(id, book) {
-        $.ajax("api/v1/books/" + id + "/lend", {
+function ApiLendBook(book) {
+        $.ajax("api/v1/books/" + book.id + "/lend", {
         data: ko.toJSON(book),
         type: "patch",
         contentType: "application/json",
