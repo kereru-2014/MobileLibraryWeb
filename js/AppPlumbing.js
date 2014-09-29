@@ -12,7 +12,7 @@ function GetBook(parameter, callback) {
 function PersistBook(book) {
     $.ajax("api/v1/books", {
         data: ko.toJSON(book),
-        type: "post",
+        type: "POST",
         contentType: "application/json",
         success: function () {alert("Book Added Successfully")}
     });
