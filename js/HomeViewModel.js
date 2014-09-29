@@ -23,6 +23,7 @@ function Borrower(data) {
 function HomeViewModel() {
     var self = this;
     self.bookList = ko.observableArray([]);
+    self.lendOptionsArray = ko.observableArray(['two weeks', 'three weeks', 'four weeks']);
     self.newBook = ko.observable();
     self.newBorrower = ko.observable();
     self.lendToBorrower = ko.observable();

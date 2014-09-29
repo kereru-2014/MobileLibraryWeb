@@ -51,11 +51,11 @@
         </div>
         <div id="modalLend" title="Lend a Book">
            <form data-bind="submit: lendToBorrower">
+            <select data-bind="options: lendOptionsArray "></select>
                     <input class='hide' id="lend_id" type="text" name="id"/>
                     <label>Title:</label><div class="lend_title"></div>
                     <label>Author:</label><div class="lend_author"></div>
                     <label>Borrower:</label><input id="lend_borrower_id" type="text" name="borrower_id"/>
-                    <select>test</select><option value='1'>1</option>
                     <img id="lend_img" height="105" width="77">
                 <button id="lendSubmit" type="submit">Submit</button>
             </form>
