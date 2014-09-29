@@ -25,6 +25,7 @@ function HomeViewModel() {
     self.bookList = ko.observableArray([]);
     self.newBook = ko.observable();
     self.newBorrower = ko.observable();
+    self.lendToBorrower = ko.observable();
 
     GetAllBooks(mapJson);
 
@@ -36,6 +37,8 @@ function HomeViewModel() {
     self.newBorrower.subscribe(function (data) {
         PersistBorrower($(data).serializeObject());
     });
+
+
 
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
