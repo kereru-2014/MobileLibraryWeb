@@ -4,8 +4,7 @@
         addBookButton,
         modalAddBorrower,
         addBorrowerButton,
-        modalLend,
-        lendButton)
+        modalLend)
     {var self = this;
     self.bookListWrapperSelector = bookListWrapper;
     self.modalAddBookSelector = modalAddBook;
@@ -17,7 +16,6 @@
     self.initialize = function() {
         self.addBookButtonSelector.on('click', function() {
             self.modalAddBookSelector.dialog("open");
-            console.log('hi');
         });
         self.modalAddBookSelector.dialog({ autoOpen: false, draggable: false });
         self.modalAddBookSelector.submit(function () {
