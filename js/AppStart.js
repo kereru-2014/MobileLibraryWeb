@@ -5,6 +5,7 @@ $(document).ready(function () {
     var modalAddBorrower = $("#modalAddBorrower");
     var addBorrowerButton = $("#addBorrowerButton");
     var modalLend = $ ("#modalLend");
+    var modalReturn = $ ("#modalReturn");
 
     var app = new AppRoutes(
         bookListWrapper,
@@ -12,7 +13,8 @@ $(document).ready(function () {
         addBookButton,
         modalAddBorrower,
         addBorrowerButton,
-        modalLend
+        modalLend,
+        modalReturn
         );
 
     app.run_ko();
