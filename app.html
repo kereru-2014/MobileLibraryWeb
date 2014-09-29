@@ -49,12 +49,13 @@
         </div>
         <div id="modalLend" title="Lend a Book">
            <form data-bind="submit: lendToBorrower">
-                    <label for="id">Id:</label><input id="lend_id" data-bind="value: id" />
-                    <label for="title">Title:</label><input id="lend_title"  data-bind="value: title" />
-                    <label for="author">Author:</label><input id="lend_author"  data-bind="value: author" />
-                    <label for="ISBN">ISBN:</label><input id="lend_isbn"  data-bind="value: ISBN" />
-                    <label for="img_url">Image Url:</label><input id="lend_imgurl" data-bind="value: image_url" />
-                    <img data-bind='attr: {src: image_url}' height="105" width="77">
+                    <input class='hide' id="lend_id"/>
+                    <input class='hide' id="lend_isbn"/>
+                    <input class='hide' id="lend_imgurl"/>
+                    <label>Title:</label><div id="lend_title"></div>
+                    <label>Author:</label><div id="lend_author"></div>
+                    <label>Borrower:</label><input id="lend_borrower_id"/>
+                    <img id="lend_img" height="105" width="77">
                 <button id="lendSubmit" type="submit">Submit</button>
             </form>
         </div>
@@ -69,11 +70,11 @@
         <div id='bookListWrapper'>
             <div data-bind="foreach: bookList">
                 <div data-bind="click: $root.bookToLend" class="bookobject">
-                    <input class='bookdetails' data-bind="value: id" />
-                    <input class='bookdetails' data-bind="value: title" />
-                    <input class='bookdetails' data-bind="value: author" />
-                    <input class='bookdetails' data-bind="value: ISBN" />
-                    <input class='bookdetails' data-bind="value: image_url" />
+                    <input class='hide' data-bind="value: id" />
+                    <input class='hide' data-bind="value: title" />
+                    <input class='hide' data-bind="value: author" />
+                    <input class='hide' data-bind="value: ISBN" />
+                    <input class='hide' data-bind="value: image_url" />
                     <img data-bind='attr: {src: image_url}' height="105" width="77">
                 </div>
             </div>

@@ -44,12 +44,16 @@ function HomeViewModel() {
 
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
-        self.lendToBorrower(bookJson);
+        //self.lendToBorrower(bookJson);
+        var obj = jQuery.parseJSON(bookJson);
+        $("#lend_id").val(obj.id);
+        $("#lend_title").html(obj.title);
+        $("#lend_author").html(obj.author);
+        $("#lend_isbn").val(obj.ISBN);
+        $("#lend_imgurl").val(obj.image_url);
+        $("#lend_borrower_id").val(obj.borrower_id);
+        $("#lend_img").attr("src", obj.image_url);
     };
-    // self.bookToLend = function(){
-    //     var bookJson = ko.toJSON(this);
-    //     console.log(bookJson);
-    // };
 
     function mapJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Book(item); });

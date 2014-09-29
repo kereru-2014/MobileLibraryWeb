@@ -25,17 +25,26 @@ function DeleteBook(parameter) {
     });
 }
 
-
 function SearchBorrowers(parameter, callback) {
     $.getJSON("api/customers/search/" + parameter, function (data) { callback(data); });
 }
 
 function PersistBorrower(borrower) {
-  console.log(borrower);
     $.ajax("api/v1/borrowers", {
         data: ko.toJSON(borrower),
         type: "post",
         contentType: "application/json",
         success: function() {alert("Borrower Added Successfully")}
-    });
-  };
+    })
+}
+
+function ApiLendBook(id, book) {
+        $.ajax("api/v1/books/" + id + "/lend", {
+        data: ko.toJSON(book),
+        type: "patch",
+        contentType: "application/json",
+        success: function() {alert("Book lent successfully")}
+    })
+}
+
+
