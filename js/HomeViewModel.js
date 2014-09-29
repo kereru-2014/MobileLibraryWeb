@@ -23,6 +23,7 @@ function HomeViewModel() {
         GetAllBooks(mapJson);
     });
 
+    // Indent for readability (you read more code then you write).
     function mapJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Book(item); });
     self.bookList(mappedTasks);
