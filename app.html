@@ -55,7 +55,7 @@
                     <label>Title:</label><div class="lend_title"></div>
                     <label>Author:</label><div class="lend_author"></div>
                     <label>Borrower:</label><input id="lend_borrower_id" type="text" name="borrower_id"/>
-                    <select>test</select><option value='1'>1</option>
+                    <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label>
                     <img id="lend_img" height="105" width="77">
                 <button id="lendSubmit" type="submit">Submit</button>
             </form>
