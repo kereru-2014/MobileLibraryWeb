@@ -16,6 +16,7 @@
     <script type="text/javascript" src="/web/js/AppRoutes.js"></script>
     <script type="text/javascript" src="/web/js/AppStart.js"></script>
     <!-- css links -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/web/css/jquery-ui.css" type="text/css">
     <link rel="stylesheet" href="/web/css/booklist.css" type="text/css">
     <link rel="stylesheet" href="/web/css/nav.css" type="text/css">
@@ -30,6 +31,7 @@
         <h1>
             Hello Juliet! This is your library
         </h1>
+        <div class='bookPic'><img src = "http://julioh.com/Tech-Specs_files/iStock1502751Large-B-flat.jpg" /></div>
         <div id="modalAddBook" title="Add Book">
             <form data-bind="submit: newBook">
                 <label for="title">Title:</label> <input type="text" name="title">
@@ -53,6 +55,7 @@
                     <label>Title:</label><div class="lend_title"></div>
                     <label>Author:</label><div class="lend_author"></div>
                     <label>Borrower:</label><input id="lend_borrower_id" type="text" name="borrower_id"/>
+                    <select>test</select><option value='1'>1</option>
                     <img id="lend_img" height="105" width="77">
                 <button id="lendSubmit" type="submit">Submit</button>
             </form>
