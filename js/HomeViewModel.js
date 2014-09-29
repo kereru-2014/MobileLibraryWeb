@@ -27,6 +27,10 @@ function HomeViewModel() {
     self.newBorrower = ko.observable();
     self.lendToBorrower = ko.observable();
 
+    self.lendToBorrower.subscribe(function (data){
+        console.log(data);
+    });
+
     GetAllBooks(mapJson);
 
     self.newBook.subscribe(function (data) {
@@ -38,12 +42,14 @@ function HomeViewModel() {
         PersistBorrower($(data).serializeObject());
     });
 
-
-
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
-        console.log(bookJson);
+        self.lendToBorrower(bookJson);
     };
+    // self.bookToLend = function(){
+    //     var bookJson = ko.toJSON(this);
+    //     console.log(bookJson);
+    // };
 
     function mapJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Book(item); });
