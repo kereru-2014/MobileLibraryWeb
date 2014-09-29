@@ -35,7 +35,7 @@
 
         self.bookListWrapperSelector.on('click', '.bookobject', function () {
             //var bookId = ($(this).children().first().val());
-            self.modalLendSelector.dialog("<o></o>pen");
+            self.modalLendSelector.dialog("open");
         });
         self.modalLendSelector.dialog({ autoOpen: false, draggable: false });
         self.modalLendSelector.submit(function () {
