@@ -28,9 +28,14 @@ function HomeViewModel() {
     self.newBook = ko.observable();
     self.newBorrower = ko.observable();
     self.lendToBorrower = ko.observable();
+    self.returnABook = ko.observable();
 
     self.lendToBorrower.subscribe(function (data){
         ApiLendBook($(data).serializeObject())
+    });
+
+    self.returnABook.subscribe(function (data){
+        ApiReturnBook($(data).book_id)
     });
 
     GetAllBooks(mapJson);

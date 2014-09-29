@@ -60,6 +60,17 @@
                 <button id="lendSubmit" type="submit">Submit</button>
             </form>
         </div>
+        <div id="modalReturn" title="Return a Book">
+           <form data-bind="submit: returnABook">
+                    <input class='hide' id="return_id" type="text" name="id"/>
+                    <label>Title:</label><div class="return_title"></div>
+                    <label>Author:</label><div class="return_author"></div>
+                    <label>Borrower:</label><input id="return_borrower_id" type="text" name="borrower_id"/>
+                    <select>test</select><option value='1'>1</option>
+                    <img id="lend_img" height="105" width="77">
+                <button id="returnSubmit" type="submit">Submit</button>
+            </form>
+        </div>
 
         <div id="addBookButton" class="pure-u-4-5">
             <button id="addToBookList" class="pure-button">Add Book</button>
@@ -70,7 +81,7 @@
 
         <div id='bookListWrapper'>
             <div data-bind="foreach: bookList">
-                <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() == null }" class="bookobject">
+                <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject">
                     <input class='hide' data-bind="value: id" />
                     <input class='hide' data-bind="value: title" />
                     <input class='hide' data-bind="value: author" />

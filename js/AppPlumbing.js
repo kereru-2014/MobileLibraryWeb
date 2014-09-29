@@ -47,4 +47,13 @@ function ApiLendBook(book) {
     })
 }
 
+function ApiReturnBook(book) {
+    console.log("in ApiReturnBook ", book);
+    //     $.ajax("api/v1/books/" + book.id + "/return", {
+    //     data: ko.toJSON(book),
+    //     type: "patch",
+    //     contentType: "application/json",
+    //     success: function() {alert("Book return successfully")}
+    // })
+}
 
