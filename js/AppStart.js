@@ -1,16 +1,18 @@
 $(document).ready(function () {
-    var addModal = $(".modalButton");
-    var box = $("#box");
-    var dialog = $("#dialog");
-    var addBorrowerButton = $("#addBorrower");
-    var dialogForNewBorrower = $("#dialogAddNewBorrower");
+    var bookListWrapper = $("#bookListWrapper");
+    var modalAddBook = $("#modalAddBook");
+    var addBookButton = $("#addBookButton");
+    var modalAddBorrower = $("#modalAddBorrower");
+    var addBorrowerButton = $("#addBorrowerButton");
+    var modalLend = $ ("#modalLend");
 
     var app = new AppRoutes(
-        addModal,
-        box,
-        dialog,
+        bookListWrapper,
+        modalAddBook,
+        addBookButton,
+        modalAddBorrower,
         addBorrowerButton,
-        dialogForNewBorrower
+        modalLend
         );
 
     app.run_ko();

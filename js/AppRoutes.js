@@ -1,37 +1,46 @@
-﻿
-function AppRoutes(addModal, box, dialog, addBorrowerButton, dialogForNewBorrower) {
-    var self = this;
-    self.addModalSelector = addModal;
-    self.addDialogSelector = dialog;
-    self.boxSelector = box;
-    self.borrowerModalSelector = addBorrowerButton;
-    self.dialogAddNewBorrowerSelector = dialogForNewBorrower;
+﻿function AppRoutes(
+        bookListWrapper,
+        modalAddBook,
+        addBookButton,
+        modalAddBorrower,
+        addBorrowerButton,
+        modalLend,
+        lendButton)
+    {var self = this;
+    self.bookListWrapperSelector = bookListWrapper;
+    self.modalAddBookSelector = modalAddBook;
+    self.addBookButtonSelector = addBookButton;
+    self.modalAddBorrowerSelector = modalAddBorrower;
+    self.addBorrowerButtonSelector = addBorrowerButton;
+    self.modalLendSelector = modalLend;
 
     self.initialize = function() {
-        self.addModalSelector.on('click', function() {
-            self.addDialogSelector.dialog("open");
+        self.addBookButtonSelector.on('click', function() {
+            self.modalAddBookSelector.dialog("open");
+            console.log('hi');
         });
-
-        self.addDialogSelector.dialog({ autoOpen: false, draggable: false });
-
-        self.addDialogSelector.submit(function () {
+        self.modalAddBookSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalAddBookSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
         });
-        self.boxSelector.on('click', '.bookobject', function () {
-            var bookId = ($(this).children('.id').first().text());
-            console.log(bookId);
-            // $("#dialogLendInfo").dialog("open");
-            // UpdateLendingInfo(bookId);
+
+
+       self.addBorrowerButtonSelector.on('click', function() {
+            self.modalAddBorrowerSelector.dialog("open");
+        });
+        self.modalAddBorrowerSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalAddBorrowerSelector.submit(function () {
+            $(this).closest(".ui-dialog-content").dialog("close");
+            return false;
         });
 
-       self.borrowerModalSelector.on('click', function() {
-            self.dialogAddNewBorrowerSelector.dialog("open");
+        self.bookListWrapperSelector.on('click', '.bookobject', function () {
+            //var bookId = ($(this).children().first().val());
+            self.modalLendSelector.dialog("open");
         });
-
-        self.dialogAddNewBorrowerSelector.dialog({ autoOpen: false, draggable: false });
-
-        self.dialogAddNewBorrowerSelector.submit(function () {
+        self.modalLendSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalLendSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
         });
@@ -44,4 +53,5 @@ AppRoutes.prototype = {
     run_ko: function () {
         HomeController.RunKnockOut();
     },
-}
+};
+

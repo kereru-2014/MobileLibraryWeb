@@ -1,7 +1,7 @@
 ﻿// Class to represent a book
 function Book(data) {
     var self = this;
-    self.id = ko.observable(data.Id);
+    self.id = ko.observable(data.id);
     self.title = ko.observable(data.title);
     self.author = ko.observable(data.author);
     self.ISBN = ko.observable(data.ISBN);
@@ -13,7 +13,7 @@ function Book(data) {
 
 function Borrower(data) {
     var self = this;
-    self.id = ko.observable(data.Id);
+    self.id = ko.observable(data.id);
     self.name = ko.observable(data.name);
     self.email = ko.observable(data.email);
     self.phone_number = ko.observable(data.phone_number);
@@ -35,8 +35,12 @@ function HomeViewModel() {
 
     self.newBorrower.subscribe(function (data) {
         PersistBorrower($(data).serializeObject());
-
     });
+
+    self.bookToLend = function(){
+        var bookJson = ko.toJSON(this);
+        console.log(bookJson);
+    };
 
     function mapJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Book(item); });
