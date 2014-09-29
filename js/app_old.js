@@ -1,3 +1,5 @@
+// Don't keep dead code around. It will just add noise. Use Git to look back
+// at old files or keep this one in a seperate branch or file on your computer.
 var BooksViewModel = function(){
   var self = this;
   self.bookList = ko.observableArray([]);
