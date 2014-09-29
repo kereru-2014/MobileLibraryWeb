@@ -65,7 +65,7 @@
 
         <div id='bookListWrapper'>
             <div data-bind="foreach: bookList">
-                <div data-bind="click: $root.bookToLend" class="bookobject">
+                <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() == null }" class="bookobject">
                     <input class='bookdetails' data-bind="value: id" />
                     <input class='bookdetails' data-bind="value: title" />
                     <input class='bookdetails' data-bind="value: author" />

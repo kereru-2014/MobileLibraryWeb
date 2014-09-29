@@ -36,6 +36,12 @@ html, body{
   padding-left: 25px;
 }
 
+
+
+.test{
+  opacity: 0.4;
+}
+
 img {
   padding-right: 25px;
   padding-top: 25px;
