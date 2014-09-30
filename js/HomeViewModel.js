@@ -37,7 +37,6 @@ function HomeViewModel() {
     self.addGoogleBook = ko.observable();
 
     self.lendToBorrower.subscribe(function (data){
-        console.log($(data).serializeObject())
         ApiLendBook($(data).serializeObject())
         GetAllBooks(mapJson);
     });
@@ -57,7 +56,6 @@ function HomeViewModel() {
     });
 
     self.addGoogleBook.subscribe(function (data) {
-        console.log(data)
         PersistBook($(data).serializeObject());
         // GetAllBooks(mapJson);
     });
@@ -119,8 +117,6 @@ function HomeViewModel() {
     }
 
     function mapSearchJson(allData){
-        console.log(allData)
-        console.log("made it to renderGoogleJson");
         var mappedTasks = $.map(allData, function (item) { return new Book(item);});
         self.renderGoogleJson(mappedTasks);
     };
