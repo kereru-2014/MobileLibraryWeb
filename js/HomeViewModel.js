@@ -5,6 +5,7 @@ function Book(data) {
     self.title = ko.observable(data.title);
     self.author = ko.observable(data.author);
     self.ISBN = ko.observable(data.ISBN);
+    self.google_isbn = ko.observable(data.isbn);
     self.image_url = ko.observable(data.image_url || data.thumbnail);
     self.lent_date = ko.observable(data.lent_date);
     self.reminder_date = ko.observable(data.reminder_date);
@@ -57,6 +58,7 @@ function HomeViewModel() {
 
     self.addGoogleBook.subscribe(function (data) {
         PersistBook($(data).serializeObject());
+        console.log(data)
         GetAllBooks(mapJson);
     });
 
@@ -66,6 +68,7 @@ function HomeViewModel() {
 
     self.searchForBook.subscribe(function(data){
         ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
+        console.log(data)
     });
 
     self.bookToDelete = function(){
@@ -97,9 +100,10 @@ function HomeViewModel() {
         var bookJson = ko.toJSON(this);
         //self.lendToBorrower(bookJson);
         var obj = jQuery.parseJSON(bookJson);
+        console.log(obj.google_isbn)
         $(".google_title").val(obj.title);
         $(".google_author").val(obj.author);
-        // $("#google_isbn").html(obj.isbn);
+        $(".google_isbn").val(obj.google_isbn[0]["identifier"]);
         $(".google_image").val(obj.image_url);
     };
 

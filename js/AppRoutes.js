@@ -60,7 +60,6 @@
         });
 
         self.GoogleListWrapperSelector.on('click', function() {
-            console.log("heelo")
             self.modalGoogleAddSelector.dialog("open");
         });
         self.modalGoogleAddSelector.dialog({ autoOpen: false, draggable: false });
