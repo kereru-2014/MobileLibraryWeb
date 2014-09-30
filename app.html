@@ -35,6 +35,7 @@
 
         <div id="modalAddBook" title="Add Book">
             <form data-bind="submit: newBook">
+                <form><input type="search" name="googleBooksSearch"></form>
                 <label for="title">Title:</label> <input type="text" name="title">
                 <label for="author">Author:</label> <input type="text" name="author">
                 <label for="ISBN">ISBN:</label> <input type="text" name="ISBN">
@@ -94,6 +95,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="searchForBook" class="pure-u-4-5">
+        <form data-bind="submit: searchForBook">
+            <input type="search" name="googleBooksSearch">
+            <button id="searchForBookBarButton" class="pure-button" type="submit">Search</button>
+        </form>
     </div>
 </body>
 </html>

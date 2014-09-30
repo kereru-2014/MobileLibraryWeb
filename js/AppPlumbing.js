@@ -55,3 +55,14 @@ function ApiReturnBook(book) {
     })
 }
 
+function ApiGoogleBooksSearch(searched_text){
+    $.ajax("/api/v1/books/find?q=" + searched_text.googleBooksSearch, {
+        type: "get",
+        contentType: "application/json",
+        success: function(data) {
+            console.log(data)
+        }
+    });
+}
+
+
