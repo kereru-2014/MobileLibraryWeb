@@ -21,7 +21,7 @@ function PersistBook(book) {
         data: ko.toJSON(book),
         type: "POST",
         contentType: "application/json",
-        success: function () {alert("Book Added Successfully")}
+        success: function () {}
     });
 }
 
