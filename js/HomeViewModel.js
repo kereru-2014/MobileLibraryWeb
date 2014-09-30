@@ -18,6 +18,7 @@ function Borrower(data) {
     self.name = ko.observable(data.name);
     self.email = ko.observable(data.email);
     self.phone_number = ko.observable(data.phone_number);
+    self.user_id = ko.observable(data.user_id);
  }
 
 
@@ -101,6 +102,8 @@ function HomeViewModel() {
         $(".google_author").val(obj.author);
         // $("#google_isbn").html(obj.isbn);
         $(".google_image").val(obj.image_url);
+
+
     };
 
     function mapJson(allData) {

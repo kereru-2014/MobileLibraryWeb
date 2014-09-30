@@ -21,7 +21,7 @@ function PersistBook(book) {
         data: ko.toJSON(book),
         type: "POST",
         contentType: "application/json",
-        success: function () {}
+        success: function () {self.HomeViewMode.newBook(null);}
     });
 }
 
@@ -41,7 +41,9 @@ function PersistBorrower(borrower) {
         data: ko.toJSON(borrower),
         type: "post",
         contentType: "application/json",
-        success: function() {}
+        success: function() {
+            alert("Borrower successfully persisted")
+        }
     });
 }
 
