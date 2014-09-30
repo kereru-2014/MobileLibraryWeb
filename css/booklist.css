@@ -45,6 +45,10 @@ html, body{
   font-family: 'Lato', sans-serif;
 }
 
+#persistNewBookButton{
+  font-family: 'Lato', sans-serif;
+}
+
 img {
   padding-right: 25px;
   padding-top: 25px;
