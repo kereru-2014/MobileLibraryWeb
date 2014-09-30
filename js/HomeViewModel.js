@@ -5,7 +5,7 @@ function Book(data) {
     self.title = ko.observable(data.title);
     self.author = ko.observable(data.author);
     self.ISBN = ko.observable(data.ISBN);
-    self.image_url = ko.observable(data.image_url);
+    self.image_url = ko.observable(data.image_url || data.thumbnail);
     self.lent_date = ko.observable(data.lent_date);
     self.reminder_date = ko.observable(data.reminder_date);
     self.borrower_id = ko.observable(data.borrower_id);
@@ -24,15 +24,19 @@ function Borrower(data) {
 function HomeViewModel() {
     var self = this;
     self.bookList = ko.observableArray([]);
+    self.lendOptionsArray = ko.observableArray([1,2,3,4]);
+    self.lendOptionsValue = ko.pureComputed(function(){return self.lendOptionsArray()});
     self.newBook = ko.observable();
     self.newBorrower = ko.observable();
     self.lendToBorrower = ko.observable();
     self.returnABook = ko.observable();
     self.borrowerList = ko.observableArray([]);
     self.selectedBorrower = ko.observable();
+    self.searchForBook = ko.observable();
+    self.renderGoogleJson = ko.observable();
+    self.addGoogleBook = ko.observable();
 
     self.lendToBorrower.subscribe(function (data){
-        console.log($(data).serializeObject())
         ApiLendBook($(data).serializeObject())
         GetAllBooks(mapJson);
     });
@@ -51,12 +55,21 @@ function HomeViewModel() {
         GetAllBooks(mapJson);
     });
 
+    self.addGoogleBook.subscribe(function (data) {
+        PersistBook($(data).serializeObject());
+        // GetAllBooks(mapJson);
+    });
+
     self.newBorrower.subscribe(function (data) {
         PersistBorrower($(data).serializeObject());
     });
 
-    self.borrowerList
+    self.searchForBook.subscribe(function(data){
+        ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
+    });
 
+    //bookToLend is used by both the modalLend and modalReturn html so
+    //should probably rename the various classes and id names
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
         //self.lendToBorrower(bookJson);
@@ -79,8 +92,21 @@ function HomeViewModel() {
         DeleteBook(this.id());
     };
 
+     self.processGoogleBook = function(){
+        console.log(this)
+        var bookJson = ko.toJSON(this);
+        console.log(bookJson)
+        //self.lendToBorrower(bookJson);
+        var obj = jQuery.parseJSON(bookJson);
+        console.log(obj)
+        $("#google_title").html(obj.title);
+        $("#google_author").html(obj.author);
+        // $("#google_isbn").html(obj.isbn);
+        $("#image_url").html(obj.image_url);
+    };
+
     function mapJson(allData) {
-    var mappedTasks = $.map(allData, function (item) { return new Book(item); });
+    var mappedTasks = $.map(allData, function (item) { return new Book(item);});
     self.bookList(mappedTasks);
     }
 
@@ -90,9 +116,14 @@ function HomeViewModel() {
     var dropdownlist = [];
     for (var i = 0; i < arrayLength; i++) {
          dropdownlist.push({ id: $(mappedTasks)[i].id(), name: $(mappedTasks)[i].name() });
-    };
-    self.borrowerList(dropdownlist);
+        };
+        self.borrowerList(dropdownlist);
     }
+
+    function mapSearchJson(allData){
+        var mappedTasks = $.map(allData, function (item) { return new Book(item);});
+        self.renderGoogleJson(mappedTasks);
+    };
 }
 
 $.fn.serializeObject = function () {

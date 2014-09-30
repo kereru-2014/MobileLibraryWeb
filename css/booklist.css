@@ -22,6 +22,7 @@ html, body{
 
 #wrap h1{
   text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
 .buttonscontainer{
@@ -40,13 +41,17 @@ html, body{
   opacity: 0.4;
 }
 
+.pure-button{
+  font-family: 'Lato', sans-serif;
+}
+
 img {
   padding-right: 25px;
   padding-top: 25px;
 }
 
 .bookcontainer {
-   float: left;
+    float: left;
     position: relative;
 }
 .closeglyph {
