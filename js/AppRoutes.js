@@ -37,7 +37,6 @@
 
         self.bookListWrapperSelector.on('click', '.bookobject', function () {
             var borrowerID = $("#lend_borrower_id").val();
-            //console.log("outside if", borrowerID);
             if(borrowerID == null || borrowerID == ""){
                 self.modalLendSelector.dialog("open");}
              else{

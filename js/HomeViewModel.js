@@ -30,10 +30,12 @@ function HomeViewModel() {
 
     self.lendToBorrower.subscribe(function (data){
         ApiLendBook($(data).serializeObject())
+        GetAllBooks(mapJson);
     });
 
     self.returnABook.subscribe(function (data){
-        ApiReturnBook($(data).book_id)
+        ApiReturnBook($(data).serializeObject());
+        GetAllBooks(mapJson);
     });
 
     GetAllBooks(mapJson);
@@ -47,6 +49,8 @@ function HomeViewModel() {
         PersistBorrower($(data).serializeObject());
     });
 
+    //bookToLend is used by both the modalLend and modalReturn html so
+    //should probably rename the various classes and id names
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
         //self.lendToBorrower(bookJson);
@@ -58,6 +62,11 @@ function HomeViewModel() {
         $("#lend_imgurl").val(obj.image_url);
         $("#lend_borrower_id").val(obj.borrower_id);
         $("#lend_img").attr("src", obj.image_url);
+        $("#return_id").val(obj.id);
+        $(".return_title").html(obj.title);
+        $(".return_author").html(obj.author);
+        $("#return_borrower_id").html(obj.borrower_id);
+        $("#return_img").attr("src", obj.image_url);
     };
 
     function mapJson(allData) {
