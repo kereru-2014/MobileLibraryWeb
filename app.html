@@ -84,7 +84,8 @@
 
         <div id='bookListWrapper'>
             <div data-bind="foreach: bookList">
-                <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject">
+                <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject" >
+                    <a href= ""><img class="closeglyph" src="/web/image/glyphicons_192_circle_remove.png"/></a>
                     <input class='hide' data-bind="value: id" />
                     <input class='hide' data-bind="value: title" />
                     <input class='hide' data-bind="value: author" />

@@ -47,6 +47,14 @@ img {
   padding-top: 25px;
 }
 
+/*.#content {
+    position: relative;
+}*/
+.closeglyph img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
 
 
 @media only screen and (max-width: 480px) {
