@@ -68,6 +68,11 @@ function HomeViewModel() {
         ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
     });
 
+    self.bookToDelete = function(){
+        DeleteBook(this.id());
+        GetAllBooks(mapJson);
+    };
+
     //bookToLend is used by both the modalLend and modalReturn html so
     //should probably rename the various classes and id names
     self.bookToLend = function(){
@@ -86,10 +91,6 @@ function HomeViewModel() {
         $(".return_author").html(obj.author);
         $("#return_borrower_id").html(obj.borrower_id);
         $("#return_img").attr("src", obj.image_url);
-    };
-
-    self.bookToDelete = function(){
-        DeleteBook(this.id());
     };
 
      self.processGoogleBook = function(){

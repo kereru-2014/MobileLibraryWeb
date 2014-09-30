@@ -95,7 +95,7 @@
         <div class='bookListWrapper'>
             <div data-bind="foreach: bookList" >
                 <div class="bookcontainer">
-                    <a href= "" data-bind="click: $root.bookToDelete"><img  src="http://salty-savannah-1450.herokuapp.com/public/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
+                    <a href= "" data-bind="click: $root.bookToDelete"><img  src="/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
                     <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject" >
                         <input class='hide' data-bind="value: id" />
                         <input class='hide' data-bind="value: title" />
