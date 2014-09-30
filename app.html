@@ -76,10 +76,11 @@
 
         <div id="modalGoogleBook" title="Add Book">
             <form data-bind="submit: addGoogleBook">
-                <label for="title">Title:</label><div id="google_title"></div>
-                <label for="author">Author:</label><div id="google_author"></div>
+                <label>Title:</label><input type="text" name="title" class="google_title"/>
+                <label>Author:</label><input type="text" name="author" class="google_author">
+                <input type="text" name="image_url" class="hide google_image">
                 <!-- <label for="ISBN">ISBN:</label><div id="google_isbn"></div> -->
-                <label for="image_url">Image:</label><div id="google_image"></div>
+                <!-- <img data-bind='attr: {src: google_image}' height="105" width="77"> -->
                 <button id="persistGoogleBookButton" type="submit">Submit</button>
             </form>
         </div>
@@ -91,7 +92,7 @@
              <button id="addBorrower" class="pure-button">Add Borrower</button>
        </div>
 
-        <div id='bookListWrapper'>
+        <div class='bookListWrapper'>
             <div data-bind="foreach: bookList" >
                 <div class="bookcontainer">
                     <a href= "" data-bind="click: $root.bookToDelete"><img  src="/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
@@ -114,7 +115,7 @@
             <button id="searchForBookBarButton" class="pure-button" type="submit">Search</button>
         </form>
     </div>
-    <div id='bookListWrapper'>
+    <div class='bookListWrapper'>
         <div data-bind="foreach: renderGoogleJson">
             <div data-bind="click: $root.processGoogleBook" class="bookobject">
                 <input class='hide' data-bind="value: id" />

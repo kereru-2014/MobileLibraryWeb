@@ -57,7 +57,7 @@ function HomeViewModel() {
 
     self.addGoogleBook.subscribe(function (data) {
         PersistBook($(data).serializeObject());
-        // GetAllBooks(mapJson);
+        GetAllBooks(mapJson);
     });
 
     self.newBorrower.subscribe(function (data) {
@@ -93,16 +93,13 @@ function HomeViewModel() {
     };
 
      self.processGoogleBook = function(){
-        console.log(this)
         var bookJson = ko.toJSON(this);
-        console.log(bookJson)
         //self.lendToBorrower(bookJson);
         var obj = jQuery.parseJSON(bookJson);
-        console.log(obj)
-        $("#google_title").html(obj.title);
-        $("#google_author").html(obj.author);
+        $(".google_title").val(obj.title);
+        $(".google_author").val(obj.author);
         // $("#google_isbn").html(obj.isbn);
-        $("#image_url").html(obj.image_url);
+        $(".google_image").val(obj.image_url);
     };
 
     function mapJson(allData) {
