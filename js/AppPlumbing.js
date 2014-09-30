@@ -43,7 +43,7 @@ function PersistBorrower(borrower) {
         type: "post",
         contentType: "application/json",
         success: function() {}
-    })
+    });
 }
 
 function ApiLendBook(book) {
@@ -53,7 +53,7 @@ function ApiLendBook(book) {
         type: "patch",
         contentType: "application/json",
         success: function() {}
-    })
+    });
 }
 
 function ApiReturnBook(book) {
@@ -61,6 +61,17 @@ function ApiReturnBook(book) {
         $.ajax("api/v1/books/" + book.id + "/return", {
         type: "patch",
         success: function() {}
-    })
+    });
 }
+
+function ApiGoogleBooksSearch(searched_text,callback){
+    $.ajax("/api/v1/books/find?q=" + searched_text.googleBooksSearch, {
+        type: "get",
+        contentType: "application/json",
+        success: function(data){
+            callback(data)
+        }
+    });
+}
+
 
