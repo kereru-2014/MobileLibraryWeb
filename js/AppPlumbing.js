@@ -34,7 +34,7 @@ function PersistBorrower(borrower) {
         data: ko.toJSON(borrower),
         type: "post",
         contentType: "application/json",
-        success: function() {alert("Borrower Added Successfully")}
+        success: function() {}
     })
 }
 
@@ -43,17 +43,15 @@ function ApiLendBook(book) {
         data: ko.toJSON(book),
         type: "patch",
         contentType: "application/json",
-        success: function() {alert("Book lent successfully")}
+        success: function() {}
     })
 }
 
 function ApiReturnBook(book) {
     console.log("in ApiReturnBook ", book);
-    //     $.ajax("api/v1/books/" + book.id + "/return", {
-    //     data: ko.toJSON(book),
-    //     type: "patch",
-    //     contentType: "application/json",
-    //     success: function() {alert("Book return successfully")}
-    // })
+        $.ajax("api/v1/books/" + book.id + "/return", {
+        type: "patch",
+        success: function() {}
+    })
 }
 
