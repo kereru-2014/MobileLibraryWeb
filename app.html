@@ -35,7 +35,6 @@
 
         <div id="modalAddBook" title="Add Book">
             <form data-bind="submit: newBook">
-                <form><input type="search" name="googleBooksSearch"></form>
                 <label for="title">Title:</label> <input type="text" name="title">
                 <label for="author">Author:</label> <input type="text" name="author">
                 <label for="ISBN">ISBN:</label> <input type="text" name="ISBN">
@@ -76,6 +75,16 @@
             </form>
         </div>
 
+        <div id="modalGoogleBook" title="Add Book">
+            <form data-bind="submit: addGoogleBook">
+                <label for="title">Title:</label><div id="google_title"></div>
+                <label for="author">Author:</label><div id="google_author"></div>
+                <!-- <label for="ISBN">ISBN:</label><div id="google_isbn"></div> -->
+                <label for="image_url">Image:</label><div id="google_image"></div>
+                <button id="persistGoogleBookButton" type="submit">Submit</button>
+            </form>
+        </div>
+
         <div id="addBookButton" class="pure-u-4-5">
             <button id="addToBookList" class="pure-button">Add Book</button>
         </div>
@@ -101,6 +110,18 @@
             <input type="search" name="googleBooksSearch">
             <button id="searchForBookBarButton" class="pure-button" type="submit">Search</button>
         </form>
+    </div>
+    <div id='bookListWrapper'>
+        <div data-bind="foreach: renderGoogleJson">
+            <div data-bind="click: $root.processGoogleBook" class="bookobject">
+                <input class='hide' data-bind="value: id" />
+                <input class='hide' data-bind="value: title" />
+                <input class='hide' data-bind="value: author" />
+                <input class='hide' data-bind="value: ISBN" />
+                <input class='hide' data-bind="value: image_url" />
+                <img data-bind='attr: {src: image_url}' height="105" width="77">
+            </div>
+        </div>
     </div>
 </body>
 </html>

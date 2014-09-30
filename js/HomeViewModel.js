@@ -5,7 +5,7 @@ function Book(data) {
     self.title = ko.observable(data.title);
     self.author = ko.observable(data.author);
     self.ISBN = ko.observable(data.ISBN);
-    self.image_url = ko.observable(data.image_url);
+    self.image_url = ko.observable(data.image_url || data.thumbnail);
     self.lent_date = ko.observable(data.lent_date);
     self.reminder_date = ko.observable(data.reminder_date);
     self.borrower_id = ko.observable(data.borrower_id);
@@ -30,7 +30,8 @@ function HomeViewModel() {
     self.lendToBorrower = ko.observable();
     self.returnABook = ko.observable();
     self.searchForBook = ko.observable();
-
+    self.renderGoogleJson = ko.observable();
+    self.addGoogleBook = ko.observable();
 
     self.lendToBorrower.subscribe(function (data){
         ApiLendBook($(data).serializeObject())
@@ -49,14 +50,19 @@ function HomeViewModel() {
         GetAllBooks(mapJson);
     });
 
+    self.addGoogleBook.subscribe(function (data) {
+        console.log(data)
+        PersistBook($(data).serializeObject());
+        // GetAllBooks(mapJson);
+    });
+
     self.newBorrower.subscribe(function (data) {
         PersistBorrower($(data).serializeObject());
     });
 
 
     self.searchForBook.subscribe(function(data){
-        ApiGoogleBooksSearch($(data).serializeObject());
-        //show all search items function goes here?!
+        ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
     });
 
     //bookToLend is used by both the modalLend and modalReturn html so
@@ -79,10 +85,30 @@ function HomeViewModel() {
         $("#return_img").attr("src", obj.image_url);
     };
 
+     self.processGoogleBook = function(){
+        console.log(this)
+        var bookJson = ko.toJSON(this);
+        console.log(bookJson)
+        //self.lendToBorrower(bookJson);
+        var obj = jQuery.parseJSON(bookJson);
+        console.log(obj)
+        $("#google_title").html(obj.title);
+        $("#google_author").html(obj.author);
+        // $("#google_isbn").html(obj.isbn);
+        $("#image_url").html(obj.image_url);
+    };
+
     function mapJson(allData) {
-    var mappedTasks = $.map(allData, function (item) { return new Book(item); });
+    var mappedTasks = $.map(allData, function (item) { return new Book(item);});
     self.bookList(mappedTasks);
     }
+
+    function mapSearchJson(allData){
+        console.log(allData)
+        console.log("made it to renderGoogleJson");
+        var mappedTasks = $.map(allData, function (item) { return new Book(item);});
+        self.renderGoogleJson(mappedTasks);
+    };
 }
 
 $.fn.serializeObject = function () {
