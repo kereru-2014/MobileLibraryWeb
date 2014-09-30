@@ -14,9 +14,7 @@ html, body{
   top: 20px;
   bottom: 20px;
 }*/
-.bookobject{
-  float: left;
-}
+
 
 .hide {
   display: none;
@@ -47,13 +45,15 @@ img {
   padding-top: 25px;
 }
 
-/*.#content {
+.bookcontainer {
+   float: left;
     position: relative;
-}*/
-.closeglyph img {
+}
+.closeglyph {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: -5px;
+    right: -5px;
+    opacity: 0.5;
 }
 
 

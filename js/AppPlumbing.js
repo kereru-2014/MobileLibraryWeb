@@ -28,7 +28,7 @@ function PersistBook(book) {
 
 function DeleteBook(parameter) {
     $.ajax({
-        url: "api/v1/books" + parameter,
+        url: "api/v1/books/" + parameter,
         type: 'DELETE'
     });
 }

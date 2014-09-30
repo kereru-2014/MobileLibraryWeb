@@ -75,6 +75,10 @@ function HomeViewModel() {
         $("#return_img").attr("src", obj.image_url);
     };
 
+    self.bookToDelete = function(){
+        DeleteBook(this.id());
+    };
+
     function mapJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Book(item); });
     self.bookList(mappedTasks);

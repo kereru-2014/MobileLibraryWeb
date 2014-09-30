@@ -83,15 +83,18 @@
        </div>
 
         <div id='bookListWrapper'>
-            <div data-bind="foreach: bookList">
-                <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject" >
-                    <a href= ""><img class="closeglyph" src="/web/image/glyphicons_192_circle_remove.png"/></a>
-                    <input class='hide' data-bind="value: id" />
-                    <input class='hide' data-bind="value: title" />
-                    <input class='hide' data-bind="value: author" />
-                    <input class='hide' data-bind="value: ISBN" />
-                    <input class='hide' data-bind="value: image_url" />
-                    <img data-bind='attr: {src: image_url}' height="105" width="77">
+            <div data-bind="foreach: bookList" >
+                <div class="bookcontainer">
+                    <a href= "" data-bind="click: $root.bookToDelete"><img  src="/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
+                    <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject" >
+
+                        <input class='hide' data-bind="value: id" />
+                        <input class='hide' data-bind="value: title" />
+                        <input class='hide' data-bind="value: author" />
+                        <input class='hide' data-bind="value: ISBN" />
+                        <input class='hide' data-bind="value: image_url" />
+                        <img data-bind='attr: {src: image_url}' height="105" width="77">
+                    </div>
                 </div>
             </div>
         </div>
