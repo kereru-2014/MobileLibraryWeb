@@ -57,22 +57,22 @@
                     <input class='hide' id="lend_id" type="text" name="id"/>
                     <label>Title:</label><div class="lend_title"></div>
                     <label>Author:</label><div class="lend_author"></div>
-                    <label>Borrower:</label><input id="lend_borrower_id" type="text" name="borrower_id"/>
-                    <select>test</select><option value='1'>1</option>
+                    <label>Borrower:</label><select name="borrower_id" id="lend_borrower_id" data-bind="options: borrowerList,
+                   optionsText: function(item) {
+                       return item.id + ' ' + item.name
+                   },
+                   optionsValue: function(item) {
+                        return item.id;
+                   },
+                   value: selectedBorrower,
+                   optionsCaption: 'Choose...'"></select>
+
                     <img id="lend_img" height="105" width="77">
                 <button id="lendSubmit" type="submit">Submit</button>
             </form>
         </div>
 
         <div id="modalReturn" title="Return a Book">
-           <form data-bind="submit: returnABook">
-                    <input class='hide' id="return_id" type="text" name="id"/>
-                    <label>Title:</label><div class="return_title"></div>
-                    <label>Author:</label><div class="return_author"></div>
-                    <label>Borrower:</label><div id="return_borrower_id"></div>
-                    <img id="return_img" height="105" width="77">
-                <button id="returnSubmit" type="submit">Submit</button>
-            </form>
         </div>
 
         <div id="addBookButton" class="pure-u-4-5">

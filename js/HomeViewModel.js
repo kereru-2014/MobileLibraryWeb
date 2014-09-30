@@ -9,6 +9,7 @@ function Book(data) {
     self.lent_date = ko.observable(data.lent_date);
     self.reminder_date = ko.observable(data.reminder_date);
     self.borrower_id = ko.observable(data.borrower_id);
+    self.user_id = ko.observable(data.user_id);
 }
 
 function Borrower(data) {
@@ -27,8 +28,11 @@ function HomeViewModel() {
     self.newBorrower = ko.observable();
     self.lendToBorrower = ko.observable();
     self.returnABook = ko.observable();
+    self.borrowerList = ko.observableArray([]);
+    self.selectedBorrower = ko.observable();
 
     self.lendToBorrower.subscribe(function (data){
+        console.log($(data).serializeObject())
         ApiLendBook($(data).serializeObject())
         GetAllBooks(mapJson);
     });
@@ -40,6 +44,8 @@ function HomeViewModel() {
 
     GetAllBooks(mapJson);
 
+    GetAllBorrowers(mapBorrowerJson);
+
     self.newBook.subscribe(function (data) {
         PersistBook($(data).serializeObject());
         GetAllBooks(mapJson);
@@ -49,8 +55,8 @@ function HomeViewModel() {
         PersistBorrower($(data).serializeObject());
     });
 
-    //bookToLend is used by both the modalLend and modalReturn html so
-    //should probably rename the various classes and id names
+    self.borrowerList
+
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
         //self.lendToBorrower(bookJson);
@@ -72,6 +78,16 @@ function HomeViewModel() {
     function mapJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Book(item); });
     self.bookList(mappedTasks);
+    }
+
+    function mapBorrowerJson(allData) {
+    var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
+    var arrayLength = mappedTasks.length;
+    var dropdownlist = [];
+    for (var i = 0; i < arrayLength; i++) {
+         dropdownlist.push({ id: $(mappedTasks)[i].id(), name: $(mappedTasks)[i].name() });
+    };
+    self.borrowerList(dropdownlist);
     }
 }
 

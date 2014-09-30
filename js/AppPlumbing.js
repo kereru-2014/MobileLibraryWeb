@@ -1,7 +1,15 @@
 //put you api facade code in here
+// function GetUserId(){
+//     render :json => {:id => current_user.id}.to_json
+// }
+
 
 function GetAllBooks(callback) {
     $.getJSON("/api/v1/books/", function (data) { callback(data); });
+}
+
+function GetAllBorrowers(callback) {
+    $.getJSON("/api/v1/borrowers/", function (data) { callback(data); });
 }
 
 function GetBook(parameter, callback) {
@@ -39,6 +47,7 @@ function PersistBorrower(borrower) {
 }
 
 function ApiLendBook(book) {
+    console.log("in ApiLendBook ", book);
         $.ajax("api/v1/books/" + book.id + "/lend", {
         data: ko.toJSON(book),
         type: "patch",
@@ -48,7 +57,7 @@ function ApiLendBook(book) {
 }
 
 function ApiReturnBook(book) {
-    console.log("in ApiReturnBook ", book);
+
         $.ajax("api/v1/books/" + book.id + "/return", {
         type: "patch",
         success: function() {}
