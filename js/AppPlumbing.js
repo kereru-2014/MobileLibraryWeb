@@ -3,7 +3,6 @@
 //     render :json => {:id => current_user.id}.to_json
 // }
 
-
 function GetAllBooks(callback) {
     $.getJSON("/api/v1/books/", function (data) { callback(data); });
 }
