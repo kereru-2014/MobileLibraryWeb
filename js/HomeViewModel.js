@@ -29,6 +29,8 @@ function HomeViewModel() {
     self.newBorrower = ko.observable();
     self.lendToBorrower = ko.observable();
     self.returnABook = ko.observable();
+    self.searchForBook = ko.observable();
+
 
     self.lendToBorrower.subscribe(function (data){
         ApiLendBook($(data).serializeObject())
@@ -49,6 +51,12 @@ function HomeViewModel() {
 
     self.newBorrower.subscribe(function (data) {
         PersistBorrower($(data).serializeObject());
+    });
+
+
+    self.searchForBook.subscribe(function(data){
+        ApiGoogleBooksSearch($(data).serializeObject());
+        //show all search items function goes here?!
     });
 
     //bookToLend is used by both the modalLend and modalReturn html so

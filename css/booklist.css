@@ -24,6 +24,7 @@ html, body{
 
 #wrap h1{
   text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
 .buttonscontainer{
@@ -40,6 +41,10 @@ html, body{
 
 .test{
   opacity: 0.4;
+}
+
+.pure-button{
+  font-family: 'Lato', sans-serif;
 }
 
 img {
