@@ -5,7 +5,9 @@
         modalAddBorrower,
         addBorrowerButton,
         modalLend,
-        modalReturn)
+        modalReturn,
+        GoogleListWrapper,
+        modalGoogleAdd)
     {var self = this;
     self.bookListWrapperSelector = bookListWrapper;
     self.modalAddBookSelector = modalAddBook;
@@ -14,6 +16,8 @@
     self.addBorrowerButtonSelector = addBorrowerButton;
     self.modalLendSelector = modalLend;
     self.modalReturnSelector = modalReturn;
+    self.GoogleListWrapperSelector = GoogleListWrapper;
+    self.modalGoogleAddSelector = modalGoogleAdd;
 
     self.initialize = function() {
         self.addBookButtonSelector.on('click', function() {
@@ -54,6 +58,17 @@
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
         });
+
+        self.GoogleListWrapperSelector.on('click', function() {
+            console.log("heelo")
+            self.modalGoogleAddSelector.dialog("open");
+        });
+        self.modalGoogleAddSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalGoogleAddSelector.submit(function () {
+            $(this).closest(".ui-dialog-content").dialog("close");
+            return false;
+        });
+
     };
 
     self.initialize();
