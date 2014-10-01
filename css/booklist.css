@@ -17,6 +17,10 @@ html, body{
   bottom: 20px;
 }*/
 
+section{
+
+}
+
 
 .hide {
   display: none;
@@ -53,6 +57,12 @@ html, body{
 .bookcontainer {
     float: left;
     position: relative;
+}
+
+.googlebookcontainer {
+    float: left;
+    position: relative;
+    background-color: gray;
 }
 
 img {
