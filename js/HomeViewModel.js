@@ -73,7 +73,7 @@ function HomeViewModel() {
     });
 
     self.bookToDelete = function(){
-        var result = confirm("Want to delete?");
+        var result = confirm("Click ok to remove this book from your library.");
         if (result==true) {
             DeleteBook(this.id());
         }
