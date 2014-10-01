@@ -113,6 +113,7 @@ function HomeViewModel() {
 
     function mapBorrowerJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
+    console.log(mappedTasks)
     var arrayLength = mappedTasks.length;
     var dropdownlist = [];
     for (var i = 0; i < arrayLength; i++) {
@@ -142,4 +143,17 @@ $.fn.serializeObject = function () {
     });
     return o;
 };
+
+var ClearAddBookModal = function(){
+    $( "#modalAddTitle").val("");
+    $( "#modalAddAuthor" ).val("");
+    $( "#modalAddISBN").val("");
+    $( "#modalAddimage_url" ).val("");
+}
+
+var ClearBorrowerModal = function(){
+    $( "#modalBorrowerName").val("");
+    $( "#modalBorrowerEmail" ).val("");
+    $( "#modalBorrowerPhone_number" ).val("");
+}
 
