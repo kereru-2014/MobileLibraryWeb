@@ -17,6 +17,16 @@ html, body{
   bottom: 20px;
 }*/
 
+section{
+
+}
+
+
+
+.pure-button{
+  font-family: 'Lato', sans-serif;
+}
+
 
 .hide {
   display: none;
@@ -54,6 +64,13 @@ html, body{
     float: left;
     position: relative;
 }
+
+.googlebookcontainer {
+    float: left;
+    position: relative;
+    text-decoration: underline;
+}
+
 
 img {
   padding-right: 25px;

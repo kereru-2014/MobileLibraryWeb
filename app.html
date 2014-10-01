@@ -29,7 +29,6 @@
         <%= render 'devise/menu/login_items' %>
     </ul>
 </nav>
-</br>
 <section id='wrap'>
     <h1> Welcome | Your Library </h1>
     <div class="buttonWrap">
@@ -74,7 +73,7 @@
             <label for="author">Author:</label> <input type="text" name="author">
             <label for="ISBN">ISBN:</label> <input type="text" name="ISBN">
             <label for="image_url">Image:</label> <input type="text" name="image_url">
-            <button id="persistNewBookButton" type="submit">Submit</button>
+            <button id="persistNewBookButton" type="submit">Add</button>
         </form>
     </div>
 
@@ -90,6 +89,7 @@
     <div id="modalReturn" title="Return a Book">
 
     </div>
+
     <div id="modalGoogleBook" title="Add Book">
         <form data-bind="submit: addGoogleBook">
             <label>Title:</label><input type="text" name="title" class="google_title"/>
@@ -100,26 +100,11 @@
             <button id="persistGoogleBookButton" type="submit">Submit</button>
         </form>
     </div>
-
-    <div class='bookListWrapper'>
-        <div data-bind="foreach: bookList" >
-            <div class="bookcontainer">
-                <a href= "" data-bind="click: $root.bookToDelete"><img  src="/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
-                <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject" >
-                    <input class='hide' data-bind="value: id" />
-                    <input class='hide' data-bind="value: title" />
-                    <input class='hide' data-bind="value: author" />
-                    <input class='hide' data-bind="value: ISBN" />
-                    <input class='hide' data-bind="value: image_url" />
-                    <img data-bind='attr: {src: image_url}' height="105" width="77">
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 
 <section class='GoogleListWrapper'>
     <div data-bind="foreach: renderGoogleJson">
+        <div class="googlebookcontainer">
         <div data-bind="click: $root.processGoogleBook" class="bookobject">
             <input class='hide' data-bind="value: id" />
             <input class='hide' data-bind="value: title" />
@@ -129,6 +114,25 @@
             <img data-bind='attr: {src: image_url}' height="105" width="77">
         </div>
     </div>
+    </div>
 </section>
+
+<section class='bookListWrapper'>
+    <div data-bind="foreach: bookList" >
+        <div class="bookcontainer">
+            <a href= "" data-bind="click: $root.bookToDelete"><img  src="/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
+                <!-- <i class="fa fa-times closeglyph"></i></a> -->
+            <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject" >
+                <input class='hide' data-bind="value: id" />
+                <input class='hide' data-bind="value: title" />
+                <input class='hide' data-bind="value: author" />
+                <input class='hide' data-bind="value: ISBN" />
+                <input class='hide' data-bind="value: image_url" />
+                <img data-bind='attr: {src: image_url}' height="105" width="77">
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
