@@ -2,31 +2,24 @@ html, body{
   height: 100%;
 }
 
-/*#booksdisplay{
-  width:25%;
-  height:25%;
-  padding-bottom: 25%;
-}*/
-
-
-/*#innercontent{
- position: absolute;
-  left: 20px;
-  right: 20px;
-  top: 20px;
-  bottom: 20px;
-}*/
-
 section{
-
+  width: 100%;
 }
 
+#allBookWrapper{
+  margin: 0 auto;
+  max-width: 1366px;
+  padding: 0 2%;
+}
 
+.bookListWrapper {
+  width: 100%;
+  margin: 0 auto;
+}
 
 .pure-button{
   font-family: 'Lato', sans-serif;
 }
-
 
 .hide {
   display: none;
@@ -40,11 +33,16 @@ section{
 #wrap h1{
   text-align: center;
   font-family: 'Lato', sans-serif;
+  font-size: 2em;
 }
 
 .buttonWrap{
-  width: 100px;
+  width: 20%;
   margin: 0 auto;
+}
+
+.buttonWrap div a {
+  margin-left: 25%
 }
 
 .test{
@@ -72,9 +70,8 @@ section{
 }
 
 
-img {
-  padding-right: 25px;
-  padding-top: 25px;
+.bookobject img {
+  padding: 12px;
 }
 
 .closeglyph {
