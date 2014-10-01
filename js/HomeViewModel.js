@@ -35,8 +35,10 @@ function HomeViewModel() {
     self.borrowerList = ko.observableArray([]);
     self.selectedBorrower = ko.observable();
     self.searchForBook = ko.observable();
-    self.renderGoogleJson = ko.observable();
+    self.clearsearches = ko.observable();
+    self.renderGoogleJson = ko.observable([]);
     self.addGoogleBook = ko.observable();
+
 
     setUpSubscribing();
     GetAllBooks(mapJson);
@@ -49,6 +51,7 @@ function HomeViewModel() {
         self.addGoogleBook.subscribe(persistGoogleAndRefreshBook);
         self.newBorrower.subscribe(persistNewBorrowerAndRefresh);
         self.searchForBook.subscribe(googleSearch);
+        self.clearsearches.subscribe(clearSearch);
     }
 
     self.bookToDelete = function(){
@@ -95,6 +98,12 @@ function HomeViewModel() {
         var mappedTasks = $.map(allData, function (item) { return new Book(item);});
         self.renderGoogleJson(mappedTasks);
     };
+
+    function clearSearch() {
+        console.log("stupid machine")
+        // self.renderGoogleJson.removeAll();
+    }
+
     function lendBook(data){
         var reminderDate = $(data).serializeObject();
         reminderDate.reminder_date.to
