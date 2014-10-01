@@ -59,7 +59,7 @@
                     <label>Author:</label><div class="lend_author"></div>
                     <label>Borrower:</label><select name="borrower_id" id="lend_borrower_id" data-bind="options: borrowerList,
                    optionsText: function(item) {
-                       return item.id + ' ' + item.name
+                       return item.name + ' (' + item.id + ')'
                    },
                    optionsValue: function(item) {
                         return item.id;

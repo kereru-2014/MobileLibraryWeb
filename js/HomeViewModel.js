@@ -81,7 +81,6 @@ function HomeViewModel() {
 
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
-        //self.lendToBorrower(bookJson);
         var obj = jQuery.parseJSON(bookJson);
         $("#lend_id").val(obj.id);
         $(".lend_title").html(obj.title);
@@ -100,13 +99,10 @@ function HomeViewModel() {
      self.processGoogleBook = function(){
         var bookJson = ko.toJSON(this);
         var obj = jQuery.parseJSON(bookJson);
-        console.log(obj.google_isbn)
         $(".google_title").val(obj.title);
         $(".google_author").val(obj.author);
         $(".google_isbn").val(obj.google_isbn[0]["identifier"]);
         $(".google_image").val(obj.image_url);
-
-
     };
 
     function mapJson(allData) {
@@ -147,20 +143,22 @@ var ClearAddBookModal = function(){
     $( "#modalAddAuthor" ).val("");
     $( "#modalAddISBN").val("");
     $( "#modalAddimage_url" ).val("");
-}
+};
 
 var ClearBorrowerModal = function(){
     $( "#modalBorrowerName").val("");
     $( "#modalBorrowerEmail" ).val("");
     $( "#modalBorrowerPhone_number" ).val("");
-}
+};
 
 function CreateLenderList(mappedTasks) {
     var arrayLength = mappedTasks.length;
     var dropdownlist = [];
     for (var i = 0; i < arrayLength; i++) {
-         dropdownlist.push({ id: $(mappedTasks)[i].id(), name: $(mappedTasks)[i].name() });
+         dropdownlist.push({ name: $(mappedTasks)[i].name(), id: $(mappedTasks)[i].id() });
         };
-        return dropdownlist;
-    }
+    return dropdownlist;
+    };
+
+
 
