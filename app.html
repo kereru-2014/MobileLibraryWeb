@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="/web/css/jquery-ui.css" type="text/css">
     <link rel="stylesheet" href="/web/css/booklist.css" type="text/css">
     <link rel="stylesheet" href="/web/css/nav.css" type="text/css">
-    <link rel="stylesheet" href="/web/css/customdialogs.css" type="text/css">
 </head>
 <body>
 <nav>
@@ -31,7 +30,6 @@
     </ul>
 </nav>
 </br>
-
 <section id='wrap'>
     <h1> Welcome | Your Library </h1>
     <div class="buttonWrap">
@@ -46,45 +44,6 @@
         <form data-bind="submit: searchForBook">
             <input type="search" name="googleBooksSearch">
             <button id="searchForBookBarButton" class="pure-button" type="submit">Search</button>
-        </form>
-    </div>
-
-    <div id="modalAddBook" title="Add Book">
-        <form data-bind="submit: newBook">
-            <label for="title">Title:</label> <input id="modalAddTitle" type="text" name="title">
-            <label for="author">Author:</label> <input id="modalAddAuthor" type="text" name="author">
-            <label for="ISBN">ISBN:</label> <input id="modalAddISBN" type="text" name="ISBN">
-            <label for="image_url">Image:</label> <input id="modalAddimage_url" type="text" name="image_url">
-            <button id="persistNewBookButton" type="submit">Submit</button>
-        </form>
-    </div>
-
-   <div id="modalAddBorrower" title="Add Borrower">
-       <form data-bind="submit: newBorrower">
-            <label for="name">Name:</label> <input id="modalBorrowerName" type="text" name="name">
-            <label for="email">Email:</label> <input id="modalBorrowerEmail" type="text" name="email">
-            <label for="phone_number">Phone No:</label> <input id="modalBorrowerPhone_number"type="text" name="phone_number">
-            <button id="persistNewBorrowerButton" type="submit">Submit</button>
-        </form>
-    </div>
-
-    <div id="modalLend" title="Lend a Book">
-       <form data-bind="submit: lendToBorrower">
-            <input class='hide' id="lend_id" type="text" name="id"/>
-            <label>Title:</label><div class="lend_title"></div>
-            <label>Author:</label><div class="lend_author"></div>
-            <label>Borrower:</label><select name="borrower_id" id="lend_borrower_id" data-bind="options: borrowerList,
-           optionsText: function(item) {
-               return item.id + ' ' + item.name
-           },
-           optionsValue: function(item) {
-                return item.id;
-           },
-           value: selectedBorrower,
-           optionsCaption: 'Choose...'" ></select><br>
-            <img id="lend_img" height="105" width="77"><br><br>
-            <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label><br>
-            <button id="lendSubmit" type="submit">Submit</button>
         </form>
     </div>
 
@@ -132,7 +91,6 @@
     <div id="modalReturn" title="Return a Book">
 
     </div>
-
     <div id="modalGoogleBook" title="Add Book">
         <form data-bind="submit: addGoogleBook">
             <label>Title:</label><input type="text" name="title" class="google_title"/>
