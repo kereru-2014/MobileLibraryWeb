@@ -102,7 +102,7 @@
     </div>
 </section>
 
-<section class='GoogleListWrapper'>
+<section class="GoogleListWrapper clearfix">
     <div data-bind="foreach: renderGoogleJson">
         <div class="googlebookcontainer">
         <div data-bind="click: $root.processGoogleBook" class="bookobject">
@@ -117,7 +117,7 @@
     </div>
 </section>
 
-<section class='bookListWrapper'>
+<section class='bookListWrapper clearfix'>
     <div data-bind="foreach: bookList" >
         <div class="bookcontainer">
             <a href= "" data-bind="click: $root.bookToDelete"><img  src="/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
