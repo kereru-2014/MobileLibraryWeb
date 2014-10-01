@@ -73,6 +73,7 @@ function ApiGoogleBooksSearch(searched_text,callback){
         contentType: "application/json",
         success: function(data){
             callback(data)
+            console.log(data)
         }
     });
 }
