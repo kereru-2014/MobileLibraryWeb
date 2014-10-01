@@ -87,26 +87,6 @@
         </form>
     </div>
 
-    <div id="modalLend" title="Lend a Book">
-       <form data-bind="submit: lendToBorrower">
-                <input class='hide' id="lend_id" type="text" name="id"/>
-                <label>Title:</label><div class="lend_title"></div>
-                <label>Author:</label><div class="lend_author"></div>
-                <label>Borrower:</label><select name="borrower_id" id="lend_borrower_id" data-bind="options: borrowerList,
-               optionsText: function(item) {
-                   return item.id + ' ' + item.name
-               },
-               optionsValue: function(item) {
-                    return item.id;
-               },
-               value: selectedBorrower,
-               optionsCaption: 'Choose...'"></select>
-                <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label>
-                <img id="lend_img" height="105" width="77">
-            <button id="lendSubmit" type="submit">Submit</button>
-        </form>
-    </div>
-
     <div id="modalReturn" title="Return a Book">
 
     </div>
