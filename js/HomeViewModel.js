@@ -39,7 +39,10 @@ function HomeViewModel() {
     self.addGoogleBook = ko.observable();
 
     self.lendToBorrower.subscribe(function (data){
-        ApiLendBook($(data).serializeObject())
+        var reminderDate = $(data).serializeObject();
+        remminderDate.reminder_date.to
+        console.log(reminderDate);
+        ApiLendBook(reminderDate)
         GetAllBooks(mapJson);
     });
 
