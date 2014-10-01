@@ -38,41 +38,19 @@ function HomeViewModel() {
     self.renderGoogleJson = ko.observable();
     self.addGoogleBook = ko.observable();
 
-    self.lendToBorrower.subscribe(function (data){
-        var reminderDate = $(data).serializeObject();
-        reminderDate.reminder_date.to
-        console.log(reminderDate);
-        ApiLendBook(reminderDate)
-        GetAllBooks(mapJson);
-    });
-
-    self.returnABook.subscribe(function (data){
-        ApiReturnBook($(data).serializeObject());
-        GetAllBooks(mapJson);
-    });
-
+    setUpSubscribing();
     GetAllBooks(mapJson);
-
     GetAllBorrowers(mapBorrowerJson);
 
-    self.newBook.subscribe(function (data) {
-        PersistBook($(data).serializeObject());
-        GetAllBooks(mapJson);
-    });
+    function setUpSubscribing(){
+        self.lendToBorrower.subscribe(lendBook);
+        self.returnABook.subscribe(persistReturnAndRefreshBook);
 
-    self.addGoogleBook.subscribe(function (data) {
-        PersistBook($(data).serializeObject());
-        GetAllBooks(mapJson);
-    });
-
-    self.newBorrower.subscribe(function (data) {
-        PersistBorrower($(data).serializeObject());
-        GetAllBorrowers(mapBorrowerJson);
-    });
-
-    self.searchForBook.subscribe(function(data){
-        ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
-    });
+        self.newBook.subscribe(persistNewAndRefreshBook);
+        self.addGoogleBook.subscribe(persistGoogleAndRefreshBook);
+        self.newBorrower.subscribe(persistNewBorrowerAndRefresh);
+        self.searchForBook.subscribe(googleSearch);
+    }
 
     self.bookToDelete = function(){
         var result = confirm("Please confirm that you wish to delete '" + this.title() + "'?");
@@ -108,11 +86,6 @@ function HomeViewModel() {
         $(".google_image").val(obj.image_url);
     };
 
-    function mapJson(allData) {
-    var mappedTasks = $.map(allData, function (item) { return new Book(item);});
-    self.bookList(mappedTasks);
-    }
-
     function mapBorrowerJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
     var dropdownlist = CreateLenderList(mappedTasks);
@@ -123,6 +96,41 @@ function HomeViewModel() {
         var mappedTasks = $.map(allData, function (item) { return new Book(item);});
         self.renderGoogleJson(mappedTasks);
     };
+    function lendBook(data){
+        var reminderDate = $(data).serializeObject();
+        reminderDate.reminder_date.to
+        ApiLendBook(reminderDate)
+        GetAllBooks(mapJson);
+    };
+
+    function mapJson(allData) {
+        var mappedTasks = $.map(allData, function (item) { return new Book(item);});
+        self.bookList(mappedTasks);
+    }
+
+    function persistReturnAndRefreshBook(data){
+        ApiReturnBook($(data).serializeObject());
+        GetAllBooks(mapJson);
+    }
+
+    function persistNewAndRefreshBook(data) {
+        PersistBook($(data).serializeObject());
+        GetAllBooks(mapJson);
+    }
+
+    function persistGoogleAndRefreshBook(data) {
+        PersistBook($(data).serializeObject());
+        GetAllBooks(mapJson);
+    }
+
+    function persistNewBorrowerAndRefresh(data) {
+        PersistBorrower($(data).serializeObject());
+        GetAllBorrowers(mapBorrowerJson);
+    }
+    function googleSearch(data){
+        ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
+    }
+
 }
 
 $.fn.serializeObject = function () {

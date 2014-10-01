@@ -8,7 +8,7 @@ describe("Borrower", function() {
   });
 
   it("should be able to borrow a Book", function() {
-    ApiLend(song);
+    ApiLendBook(book);
     expect(player.currentlyPlayingSong).toEqual(song);
 
     //demonstrates use of custom matcher
