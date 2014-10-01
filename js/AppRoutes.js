@@ -37,16 +37,16 @@
             autoOpen: false, 
             draggable: false, 
             resizable:false,
-            width: 500,
-            height: 800,
+            width: 800,
+            height: 500,
             autoOpen: false,
             show: {
-              effect: "blind",
-              duration: 1000
+              effect: "clip",
+              duration: 500
             },
             hide: {
-              effect: "blind",
-              duration: 1000
+              effect: "clip",
+              duration: 500
             } });
         self.modalAddBorrowerSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");

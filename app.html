@@ -16,118 +16,120 @@
     <script type="text/javascript" src="/web/js/AppRoutes.js"></script>
     <script type="text/javascript" src="/web/js/AppStart.js"></script>
     <!-- css links -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/web/css/jquery-ui.css" type="text/css">
     <link rel="stylesheet" href="/web/css/booklist.css" type="text/css">
     <link rel="stylesheet" href="/web/css/nav.css" type="text/css">
-    <link rel="stylesheet" href="/web/css/customdialogs.css" type="text/css">
 </head>
 <body>
-    <ul class="hmenu">
+<nav>
+    <ul>
         <%= render 'devise/menu/registration_items' %>
         <%= render 'devise/menu/login_items' %>
     </ul>
-    <%= yield %>
-    <div id='wrap'>
-        <h1>
-            Hello Juliet! This is your library
-        </h1>
-        <div class='bookPic'><img src = "http://julioh.com/Tech-Specs_files/iStock1502751Large-B-flat.jpg" /></div>
-
-        <div id="modalAddBook" title="Add Book">
-            <form data-bind="submit: newBook">
-                <label for="title">Title:</label> <input id="modalAddTitle" type="text" name="title">
-                <label for="author">Author:</label> <input id="modalAddAuthor" type="text" name="author">
-                <label for="ISBN">ISBN:</label> <input id="modalAddISBN" type="text" name="ISBN">
-                <label for="image_url">Image:</label> <input id="modalAddimage_url" type="text" name="image_url">
-                <button id="persistNewBookButton" type="submit">Submit</button>
-            </form>
-        </div>
-
-       <div id="modalAddBorrower" title="Add Borrower">
-           <form data-bind="submit: newBorrower">
-                <label for="name">Name:</label> <input id="modalBorrowerName" type="text" name="name">
-                <label for="email">Email:</label> <input id="modalBorrowerEmail" type="text" name="email">
-                <label for="phone_number">Phone No:</label> <input id="modalBorrowerPhone_number"type="text" name="phone_number">
-                <button id="persistNewBorrowerButton" type="submit">Submit</button>
-            </form>
-        </div>
-
-        <div id="modalLend" title="Lend a Book">
-           <form data-bind="submit: lendToBorrower">
-                    <input class='hide' id="lend_id" type="text" name="id"/>
-                    <label>Title:</label><div class="lend_title"></div>
-                    <label>Author:</label><div class="lend_author"></div>
-                    <label>Borrower:</label><select name="borrower_id" id="lend_borrower_id" data-bind="options: borrowerList,
-                   optionsText: function(item) {
-                       return item.id + ' ' + item.name
-                   },
-                   optionsValue: function(item) {
-                        return item.id;
-                   },
-                   value: selectedBorrower,
-                   optionsCaption: 'Choose...'" ></select><br>
-                    <img id="lend_img" height="105" width="77"><br><br>
-                    <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label><br>
-
-                <button id="lendSubmit" type="submit">Submit</button>
-            </form>
-        </div>
-
-        <div id="modalReturn" title="Return a Book">
-        </div>
-
-        <div id="modalGoogleBook" title="Add Book">
-            <form data-bind="submit: addGoogleBook">
-                <label>Title:</label><input type="text" name="title" class="google_title"/>
-                <label>Author:</label><input type="text" name="author" class="google_author">
-                <input type="text" name="image_url" class="hide google_image">
-                <label>ISBN:</label><input type="text" name="isbn" class="google_isbn">
-                <!-- <img data-bind='attr: {src: google_image}' height="105" width="77"> -->
-                <button id="persistGoogleBookButton" type="submit">Submit</button>
-            </form>
-        </div>
-
-        <div id="addBookButton" class="pure-u-4-5">
-            <button id="addToBookList" class="pure-button">Add Book</button>
-        </div>
-        <div id="addBorrowerButton" class="pure-u-4-5">
-             <button id="addBorrower" class="pure-button">Add Borrower</button>
-       </div>
-
-        <div class='bookListWrapper'>
-            <div data-bind="foreach: bookList" >
-                <div class="bookcontainer">
-                    <a href= "" data-bind="click: $root.bookToDelete"><img  src="/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
-                    <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject" >
-                        <input class='hide' data-bind="value: id" />
-                        <input class='hide' data-bind="value: title" />
-                        <input class='hide' data-bind="value: author" />
-                        <input class='hide' data-bind="value: ISBN" />
-                        <input class='hide' data-bind="value: image_url" />
-                        <img data-bind='attr: {src: image_url}' height="105" width="77">
-                    </div>
-                </div>
-            </div>
+</nav>
+</br>
+<section id='wrap'>
+    <h1> Welcome | Your Library </h1>
+    <div class="buttonWrap">
+        <div class="btn-group">
+            <a id="addBorrowerButton" class="btn" href="#"><i class="fa fa-user fa-3x"></i></a>
+            <a id="addBookButton" class="btn" href="#"><i class="fa fa-book fa-3x"></i></a>
         </div>
     </div>
+    </br>
+
     <div id="searchForBook" class="pure-u-4-5">
         <form data-bind="submit: searchForBook">
             <input type="search" name="googleBooksSearch">
             <button id="searchForBookBarButton" class="pure-button" type="submit">Search</button>
         </form>
     </div>
-    <div class='GoogleListWrapper'>
-        <div data-bind="foreach: renderGoogleJson">
-            <div data-bind="click: $root.processGoogleBook" class="bookobject">
-                <input class='hide' data-bind="value: id" />
-                <input class='hide' data-bind="value: title" />
-                <input class='hide' data-bind="value: author" />
-                <input class='hide' data-bind="value: ISBN" />
-                <input class='hide' data-bind="value: image_url" />
-                <img data-bind='attr: {src: image_url}' height="105" width="77">
+
+  <!--   <div class='bookPic'><img src = "http://julioh.com/Tech-Specs_files/iStock1502751Large-B-flat.jpg" /></div> -->
+
+    <div id="modalAddBook" title="Add Book">
+        <form data-bind="submit: newBook">
+            <label for="title">Title:</label> <input type="text" name="title">
+            <label for="author">Author:</label> <input type="text" name="author">
+            <label for="ISBN">ISBN:</label> <input type="text" name="ISBN">
+            <label for="image_url">Image:</label> <input type="text" name="image_url">
+            <button id="persistNewBookButton" type="submit">Submit</button>
+        </form>
+    </div>
+
+   <div id="modalAddBorrower" title="Add Borrower">
+       <form data-bind="submit: newBorrower">
+            <label for="name">Name:</label> <input type="text" name="name">
+            <label for="email">Email:</label> <input type="text" name="email">
+            <label for="phone_number">Phone No:</label> <input type="text" name="phone_number">
+            <button id="persistNewBorrowerButton" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="modalLend" title="Lend a Book">
+       <form data-bind="submit: lendToBorrower">
+                <input class='hide' id="lend_id" type="text" name="id"/>
+                <label>Title:</label><div class="lend_title"></div>
+                <label>Author:</label><div class="lend_author"></div>
+                <label>Borrower:</label><select name="borrower_id" id="lend_borrower_id" data-bind="options: borrowerList,
+               optionsText: function(item) {
+                   return item.id + ' ' + item.name
+               },
+               optionsValue: function(item) {
+                    return item.id;
+               },
+               value: selectedBorrower,
+               optionsCaption: 'Choose...'"></select>
+                <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label>
+                <img id="lend_img" height="105" width="77">
+            <button id="lendSubmit" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="modalReturn" title="Return a Book">
+
+    </div>
+    <div id="modalGoogleBook" title="Add Book">
+        <form data-bind="submit: addGoogleBook">
+            <label>Title:</label><input type="text" name="title" class="google_title"/>
+            <label>Author:</label><input type="text" name="author" class="google_author">
+            <input type="text" name="image_url" class="hide google_image">
+            <label>ISBN:</label><input type="text" name="isbn" class="google_isbn">
+            <!-- <img data-bind='attr: {src: google_image}' height="105" width="77"> -->
+            <button id="persistGoogleBookButton" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class='bookListWrapper'>
+        <div data-bind="foreach: bookList" >
+            <div class="bookcontainer">
+                <a href= "" data-bind="click: $root.bookToDelete"><img  src="/web/image/glyphicons_192_circle_remove.png" class='closeglyph'/></a>
+                <div data-bind="click: $root.bookToLend, css:{'test': borrower_id() != null }" class="bookobject" >
+                    <input class='hide' data-bind="value: id" />
+                    <input class='hide' data-bind="value: title" />
+                    <input class='hide' data-bind="value: author" />
+                    <input class='hide' data-bind="value: ISBN" />
+                    <input class='hide' data-bind="value: image_url" />
+                    <img data-bind='attr: {src: image_url}' height="105" width="77">
+                </div>
             </div>
         </div>
     </div>
+</section>
+
+<section class='GoogleListWrapper'>
+    <div data-bind="foreach: renderGoogleJson">
+        <div data-bind="click: $root.processGoogleBook" class="bookobject">
+            <input class='hide' data-bind="value: id" />
+            <input class='hide' data-bind="value: title" />
+            <input class='hide' data-bind="value: author" />
+            <input class='hide' data-bind="value: ISBN" />
+            <input class='hide' data-bind="value: image_url" />
+            <img data-bind='attr: {src: image_url}' height="105" width="77">
+        </div>
+    </div>
+</section>
 </body>
 </html>
