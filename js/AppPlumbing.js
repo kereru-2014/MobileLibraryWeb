@@ -44,14 +44,13 @@ function PersistBorrower(borrower) {
         type: "post",
         contentType: "application/json",
         success: function() {
-
             ClearBorrowerModal();
         }
     });
 }
 
 function ApiLendBook(book) {
-    console.log("in ApiLendBook ", book);
+       console.log("in ApiLendBook ", book);
         $.ajax("api/v1/books/" + book.id + "/lend", {
         data: ko.toJSON(book),
         type: "patch",

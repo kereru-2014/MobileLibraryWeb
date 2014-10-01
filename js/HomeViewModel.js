@@ -70,12 +70,13 @@ function HomeViewModel() {
     });
 
     self.bookToDelete = function(){
-        DeleteBook(this.id());
+        var result = confirm("Want to delete?");
+        if (result==true) {
+            DeleteBook(this.id());
+        }
         GetAllBooks(mapJson);
     };
 
-    //bookToLend is used by both the modalLend and modalReturn html so
-    //should probably rename the various classes and id names
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
         //self.lendToBorrower(bookJson);
@@ -96,11 +97,10 @@ function HomeViewModel() {
 
      self.processGoogleBook = function(){
         var bookJson = ko.toJSON(this);
-        //self.lendToBorrower(bookJson);
         var obj = jQuery.parseJSON(bookJson);
         $(".google_title").val(obj.title);
         $(".google_author").val(obj.author);
-        // $("#google_isbn").html(obj.isbn);
+        $("#google_isbn").html(obj.isbn);
         $(".google_image").val(obj.image_url);
 
 
@@ -113,14 +113,13 @@ function HomeViewModel() {
 
     function mapBorrowerJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
-    console.log(mappedTasks)
     var arrayLength = mappedTasks.length;
     var dropdownlist = [];
     for (var i = 0; i < arrayLength; i++) {
          dropdownlist.push({ id: $(mappedTasks)[i].id(), name: $(mappedTasks)[i].name() });
         };
         self.borrowerList(dropdownlist);
-    }
+    };
 
     function mapSearchJson(allData){
         var mappedTasks = $.map(allData, function (item) { return new Book(item);});
