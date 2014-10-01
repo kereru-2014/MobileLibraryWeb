@@ -16,6 +16,7 @@
     <script type="text/javascript" src="/web/js/AppRoutes.js"></script>
     <script type="text/javascript" src="/web/js/AppStart.js"></script>
     <!-- css links -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/web/css/jquery-ui.css" type="text/css">
     <link rel="stylesheet" href="/web/css/booklist.css" type="text/css">
@@ -26,12 +27,20 @@
         <%= render 'devise/menu/registration_items' %>
         <%= render 'devise/menu/login_items' %>
     </ul>
-    <%= yield %>
     <div id='wrap'>
-        <h1>
-            Hello Juliet! This is your library
-        </h1>
-        <div class='bookPic'><img src = "http://julioh.com/Tech-Specs_files/iStock1502751Large-B-flat.jpg" /></div>
+        <h1> Welcome | Your Library </h1>
+        <div class="buttonWrap">
+            <div id="addBorrowerButton" class="pure-u-4-5">
+                <i class="fa fa-user"></i>
+            </div>
+            <div id="addBookButton" class="pure-u-4-5">
+                <i class="fa fa-book"></i>
+            </div>
+        </div>
+        </br>
+
+
+      <!--   <div class='bookPic'><img src = "http://julioh.com/Tech-Specs_files/iStock1502751Large-B-flat.jpg" /></div> -->
 
         <div id="modalAddBook" title="Add Book">
             <form data-bind="submit: newBook">
@@ -86,12 +95,14 @@
             </form>
         </div>
 
-        <div id="addBookButton" class="pure-u-4-5">
-            <button id="addToBookList" class="pure-button">Add Book</button>
-        </div>
+  <!--       <div id="addBookButton" class="pure-u-4-5">
+            <i id="addToBookList" class="fa fa-book"></i> -->
+            <!-- <button id="addToBookList" class="pure-button">Add Book</button> -->
+     <!--    </div>
         <div id="addBorrowerButton" class="pure-u-4-5">
-             <button id="addBorrower" class="pure-button">Add Borrower</button>
-       </div>
+            <i id="addBorrower" class="fa fa-user"></i> -->
+            <!--  <button id="addBorrower" class="pure-button">Add Borrower</button> -->
+       <!-- </div> -->
 
         <div class='bookListWrapper'>
             <div data-bind="foreach: bookList" >

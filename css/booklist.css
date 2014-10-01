@@ -35,17 +35,20 @@ html, body{
   padding-left: 25px;
 }
 
+.buttonWrap{
+ width: 50px;
+ margin: 0 auto;
+}
 
+.buttonWrap div{
+  float:left;
+}
 
 .test{
   opacity: 0.4;
 }
 
-.pure-button{
-  font-family: 'Lato', sans-serif;
-}
-
-#persistNewBookButton{
+#persistNewBookButton {
   font-family: 'Lato', sans-serif;
 }
 
@@ -58,12 +61,15 @@ img {
     float: left;
     position: relative;
 }
+
+
 .closeglyph {
     position: absolute;
     top: -5px;
     right: -5px;
     opacity: 0.5;
 }
+
 
 
 @media only screen and (max-width: 480px) {
