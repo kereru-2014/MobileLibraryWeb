@@ -8,7 +8,6 @@ function GetAllBorrowers(callback) {
 
 function GetBook(parameter, callback) {
     var temp = $.getJSON("/api/v1/books/" + parameter, function (data) { callback(data); });
-        console.log("plumbing", temp);
 }
 
 function PersistBook(book) {
@@ -45,7 +44,6 @@ function PersistBorrower(borrower) {
 }
 
 function ApiLendBook(book) {
-       console.log("in ApiLendBook ", book);
         $.ajax("api/v1/books/" + book.id + "/lend", {
         data: ko.toJSON(book),
         type: "patch",
@@ -68,7 +66,6 @@ function ApiGoogleBooksSearch(searched_text,callback){
         contentType: "application/json",
         success: function(data){
             callback(data)
-            console.log(data)
         }
     });
 }

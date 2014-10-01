@@ -38,40 +38,18 @@ function HomeViewModel() {
     self.renderGoogleJson = ko.observable();
     self.addGoogleBook = ko.observable();
 
-    self.lendToBorrower.subscribe(function (data){
-        ApiLendBook($(data).serializeObject())
-        GetAllBooks(mapJson);
-    });
-
-    self.returnABook.subscribe(function (data){
-        ApiReturnBook($(data).serializeObject());
-        GetAllBooks(mapJson);
-    });
-
+    setUpSubscribing();
     GetAllBooks(mapJson);
-
     GetAllBorrowers(mapBorrowerJson);
 
-    self.newBook.subscribe(function (data) {
-        PersistBook($(data).serializeObject());
-        GetAllBooks(mapJson);
-    });
-
-    self.addGoogleBook.subscribe(function (data) {
-        PersistBook($(data).serializeObject());
-        console.log(data)
-        GetAllBooks(mapJson);
-    });
-
-    self.newBorrower.subscribe(function (data) {
-        PersistBorrower($(data).serializeObject());
-        GetAllBorrowers(mapBorrowerJson);
-    });
-
-    self.searchForBook.subscribe(function(data){
-        ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
-        console.log(data)
-    });
+    function setUpSubscribing(){
+        self.lendToBorrower.subscribe(lendBook);
+        self.returnABook.subscribe(persistReturnAndRefreshBook);
+        self.newBook.subscribe(persistNewAndRefreshBook);
+        self.addGoogleBook.subscribe(persistGoogleAndRefreshBook);
+        self.newBorrower.subscribe(persistNewBorrowerAndRefresh);
+        self.searchForBook.subscribe(googleSearch);
+    }
 
     self.bookToDelete = function(){
         var result = confirm("Please confirm that you wish to delete '" + this.title() + "'?");
@@ -101,28 +79,57 @@ function HomeViewModel() {
      self.processGoogleBook = function(){
         var bookJson = ko.toJSON(this);
         var obj = jQuery.parseJSON(bookJson);
-        console.log(obj.google_isbn)
         $(".google_title").val(obj.title);
         $(".google_author").val(obj.author);
         $(".google_isbn").val(obj.google_isbn[0]["identifier"]);
         $(".google_image").val(obj.image_url);
     };
 
-    function mapJson(allData) {
-    var mappedTasks = $.map(allData, function (item) { return new Book(item);});
-    self.bookList(mappedTasks);
-    }
-
     function mapBorrowerJson(allData) {
-    var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
-    var dropdownlist = CreateLenderList(mappedTasks);
-       self.borrowerList(dropdownlist);
+        var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
+        var dropdownlist = CreateLenderList(mappedTasks);
+        self.borrowerList(dropdownlist);
     };
 
     function mapSearchJson(allData){
         var mappedTasks = $.map(allData, function (item) { return new Book(item);});
         self.renderGoogleJson(mappedTasks);
     };
+    function lendBook(data){
+        var reminderDate = $(data).serializeObject();
+        reminderDate.reminder_date.to
+        ApiLendBook(reminderDate)
+        GetAllBooks(mapJson);
+    };
+
+    function mapJson(allData) {
+        var mappedTasks = $.map(allData, function (item) { return new Book(item);});
+        self.bookList(mappedTasks);
+    }
+
+    function persistReturnAndRefreshBook(data){
+        ApiReturnBook($(data).serializeObject());
+        GetAllBooks(mapJson);
+    }
+
+    function persistNewAndRefreshBook(data) {
+        PersistBook($(data).serializeObject());
+        GetAllBooks(mapJson);
+    }
+
+    function persistGoogleAndRefreshBook(data) {
+        PersistBook($(data).serializeObject());
+        GetAllBooks(mapJson);
+    }
+
+    function persistNewBorrowerAndRefresh(data) {
+        PersistBorrower($(data).serializeObject());
+        GetAllBorrowers(mapBorrowerJson);
+    }
+    function googleSearch(data){
+        ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
+    }
+
 }
 
 $.fn.serializeObject = function () {
@@ -146,20 +153,22 @@ var ClearAddBookModal = function(){
     $( "#modalAddAuthor" ).val("");
     $( "#modalAddISBN").val("");
     $( "#modalAddimage_url" ).val("");
-}
+};
 
 var ClearBorrowerModal = function(){
     $( "#modalBorrowerName").val("");
     $( "#modalBorrowerEmail" ).val("");
     $( "#modalBorrowerPhone_number" ).val("");
-}
+};
 
 function CreateLenderList(mappedTasks) {
     var arrayLength = mappedTasks.length;
     var dropdownlist = [];
     for (var i = 0; i < arrayLength; i++) {
-         dropdownlist.push({ id: $(mappedTasks)[i].id(), name: $(mappedTasks)[i].name() });
+         dropdownlist.push({ name: $(mappedTasks)[i].name(), id: $(mappedTasks)[i].id() });
         };
-        return dropdownlist;
-    }
+    return dropdownlist;
+    };
+
+
 

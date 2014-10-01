@@ -19,11 +19,28 @@
     self.GoogleListWrapperSelector = GoogleListWrapper;
     self.modalGoogleAddSelector = modalGoogleAdd;
 
+    var modalArguments = {
+        autoOpen: false,
+        draggable: false,
+        resizable: false,
+        width: 800,
+        height: 500,
+        autoOpen: false,
+        show: {
+          effect: "clip",
+          duration: 500
+        },
+        hide: {
+          effect: "clip",
+          duration: 500
+        }
+    };
+
     self.initialize = function() {
         self.addBookButtonSelector.on('click', function() {
             self.modalAddBookSelector.dialog("open");
         });
-        self.modalAddBookSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalAddBookSelector.dialog(modalArguments);
         self.modalAddBookSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
@@ -33,21 +50,7 @@
        self.addBorrowerButtonSelector.on('click', function() {
             self.modalAddBorrowerSelector.dialog("open");
         });
-        self.modalAddBorrowerSelector.dialog({ 
-            autoOpen: false, 
-            draggable: false, 
-            resizable:false,
-            width: 800,
-            height: 500,
-            autoOpen: false,
-            show: {
-              effect: "clip",
-              duration: 500
-            },
-            hide: {
-              effect: "clip",
-              duration: 500
-            } });
+        self.modalAddBorrowerSelector.dialog(modalArguments);
         self.modalAddBorrowerSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
@@ -61,42 +64,13 @@
                 self.modalReturnSelector.dialog("open");}
          });
 
-        self.modalLendSelector.dialog({ 
-            autoOpen: false, 
-            draggable: false, 
-            resizable:false,
-            width: 500,
-            height: 800,
-            autoOpen: false,
-            show: {
-              effect: "blind",
-              duration: 1000
-            },
-            hide: {
-              effect: "blind",
-              duration: 1000
-            } });
-
+        self.modalLendSelector.dialog(modalArguments);
         self.modalLendSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
         });
 
-        self.modalReturnSelector.dialog({ 
-            autoOpen: false, 
-            draggable: false, 
-            resizable:false,
-            width: 500,
-            height: 800,
-            autoOpen: false,
-            show: {
-              effect: "blind",
-              duration: 1000
-            },
-            hide: {
-              effect: "blind",
-              duration: 1000
-            } });
+        self.modalReturnSelector.dialog(modalArguments);
         self.modalReturnSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
@@ -105,21 +79,7 @@
         self.GoogleListWrapperSelector.on('click', function() {
             self.modalGoogleAddSelector.dialog("open");
         });
-        self.modalGoogleAddSelector.dialog({ 
-            autoOpen: false, 
-            draggable: false, 
-            resizable:false,
-            width: 500,
-            height: 800,
-            autoOpen: false,
-            show: {
-              effect: "blind",
-              duration: 1000
-            },
-            hide: {
-              effect: "blind",
-              duration: 1000
-            } });
+        self.modalGoogleAddSelector.dialog(modalArguments);
         self.modalGoogleAddSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;

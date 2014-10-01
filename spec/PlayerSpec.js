@@ -1,14 +1,14 @@
-describe("Player", function() {
-  var player;
+describe("Borrower", function() {
+  var borrower;
   var song;
 
   beforeEach(function() {
-    player = new Player();
-    song = new Song();
+    borrower = new Borrower();
+    book = new Book();
   });
 
-  it("should be able to play a Song", function() {
-    player.play(song);
+  it("should be able to borrow a Book", function() {
+    ApiLendBook(book);
     expect(player.currentlyPlayingSong).toEqual(song);
 
     //demonstrates use of custom matcher

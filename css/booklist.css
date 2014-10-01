@@ -37,7 +37,7 @@ section{
   padding-left: 25px;
 }
 
-h1{
+#wrap h1{
   text-align: center;
   font-family: 'Lato', sans-serif;
 }
@@ -82,6 +82,27 @@ img {
     top: -5px;
     right: -5px;
     opacity: 0.5;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
 }
 
 @media only screen and (max-width: 480px) {
