@@ -33,7 +33,21 @@
        self.addBorrowerButtonSelector.on('click', function() {
             self.modalAddBorrowerSelector.dialog("open");
         });
-        self.modalAddBorrowerSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalAddBorrowerSelector.dialog({ 
+            autoOpen: false, 
+            draggable: false, 
+            resizable:false,
+            width: 500,
+            height: 800,
+            autoOpen: false,
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "blind",
+              duration: 1000
+            } });
         self.modalAddBorrowerSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
@@ -47,13 +61,42 @@
                 self.modalReturnSelector.dialog("open");}
          });
 
-        self.modalLendSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalLendSelector.dialog({ 
+            autoOpen: false, 
+            draggable: false, 
+            resizable:false,
+            width: 500,
+            height: 800,
+            autoOpen: false,
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "blind",
+              duration: 1000
+            } });
+
         self.modalLendSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
         });
 
-        self.modalReturnSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalReturnSelector.dialog({ 
+            autoOpen: false, 
+            draggable: false, 
+            resizable:false,
+            width: 500,
+            height: 800,
+            autoOpen: false,
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "blind",
+              duration: 1000
+            } });
         self.modalReturnSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;
@@ -62,7 +105,21 @@
         self.GoogleListWrapperSelector.on('click', function() {
             self.modalGoogleAddSelector.dialog("open");
         });
-        self.modalGoogleAddSelector.dialog({ autoOpen: false, draggable: false });
+        self.modalGoogleAddSelector.dialog({ 
+            autoOpen: false, 
+            draggable: false, 
+            resizable:false,
+            width: 500,
+            height: 800,
+            autoOpen: false,
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "blind",
+              duration: 1000
+            } });
         self.modalGoogleAddSelector.submit(function () {
             $(this).closest(".ui-dialog-content").dialog("close");
             return false;

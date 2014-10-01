@@ -81,7 +81,6 @@ function HomeViewModel() {
 
     self.bookToLend = function(){
         var bookJson = ko.toJSON(this);
-        //self.lendToBorrower(bookJson);
         var obj = jQuery.parseJSON(bookJson);
         $("#lend_id").val(obj.id);
         $(".lend_title").html(obj.title);
@@ -105,8 +104,6 @@ function HomeViewModel() {
         $(".google_author").val(obj.author);
         $(".google_isbn").val(obj.google_isbn[0]["identifier"]);
         $(".google_image").val(obj.image_url);
-
-
     };
 
     function mapJson(allData) {
