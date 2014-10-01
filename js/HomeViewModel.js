@@ -70,7 +70,7 @@ function HomeViewModel() {
     });
 
     self.bookToDelete = function(){
-        var result = confirm("Want to delete?");
+        var result = confirm("Please confirm that you wish to delete '" + this.title() + "'?");
         if (result==true) {
             DeleteBook(this.id());
         }
