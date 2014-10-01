@@ -41,11 +41,11 @@
             height: 500,
             autoOpen: false,
             show: {
-              effect: "blind",
+              effect: "clip",
               duration: 500
             },
             hide: {
-              effect: "blind",
+              effect: "clip",
               duration: 500
             } });
         self.modalAddBorrowerSelector.submit(function () {
