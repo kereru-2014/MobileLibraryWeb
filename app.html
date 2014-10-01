@@ -42,7 +42,8 @@
     <div id="searchForBook" class="pure-u-4-5">
         <form data-bind="submit: searchForBook">
             <input type="search" name="googleBooksSearch">
-            <button id="searchForBookBarButton" class="pure-button" type="submit">Search</button>
+            <button id="searchForBookBarButton" class="pure-button" type="submit"><i class="fa fa-search"></i></button>
+            <a id="searchForBookBarButton" class="btn" href="#"><i class="fa fa-search"></i></a>
         </form>
     </div>
 
@@ -66,6 +67,7 @@
             <button id="persistNewBorrowerButton" type="submit">Submit</button>
         </form>
     </div>
+
 
     <div id="modalLend" title="Lend a Book">
        <form data-bind="submit: lendToBorrower">
