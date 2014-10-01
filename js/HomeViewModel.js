@@ -45,7 +45,6 @@ function HomeViewModel() {
     function setUpSubscribing(){
         self.lendToBorrower.subscribe(lendBook);
         self.returnABook.subscribe(persistReturnAndRefreshBook);
-
         self.newBook.subscribe(persistNewAndRefreshBook);
         self.addGoogleBook.subscribe(persistGoogleAndRefreshBook);
         self.newBorrower.subscribe(persistNewBorrowerAndRefresh);
@@ -87,9 +86,9 @@ function HomeViewModel() {
     };
 
     function mapBorrowerJson(allData) {
-    var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
-    var dropdownlist = CreateLenderList(mappedTasks);
-       self.borrowerList(dropdownlist);
+        var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
+        var dropdownlist = CreateLenderList(mappedTasks);
+        self.borrowerList(dropdownlist);
     };
 
     function mapSearchJson(allData){

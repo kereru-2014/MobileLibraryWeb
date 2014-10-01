@@ -13,7 +13,6 @@ function GetAllBorrowers(callback) {
 
 function GetBook(parameter, callback) {
     var temp = $.getJSON("/api/v1/books/" + parameter, function (data) { callback(data); });
-        console.log("plumbing", temp);
 }
 
 function PersistBook(book) {
@@ -72,7 +71,6 @@ function ApiGoogleBooksSearch(searched_text,callback){
         contentType: "application/json",
         success: function(data){
             callback(data)
-            console.log(data)
         }
     });
 }
