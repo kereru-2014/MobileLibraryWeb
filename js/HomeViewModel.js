@@ -40,7 +40,7 @@ function HomeViewModel() {
 
     self.lendToBorrower.subscribe(function (data){
         var reminderDate = $(data).serializeObject();
-        remminderDate.reminder_date.to
+        reminderDate.reminder_date.to
         console.log(reminderDate);
         ApiLendBook(reminderDate)
         GetAllBooks(mapJson);

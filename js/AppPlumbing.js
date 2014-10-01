@@ -50,7 +50,6 @@ function PersistBorrower(borrower) {
 }
 
 function ApiLendBook(book) {
-       console.log("in ApiLendBook ", book);
         $.ajax("api/v1/books/" + book.id + "/lend", {
         data: ko.toJSON(book),
         type: "patch",
