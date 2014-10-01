@@ -16,12 +16,12 @@
     <script type="text/javascript" src="/web/js/AppStart.js"></script>
     <!-- css links -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="/web/css/jquery-ui.css" type="text/css">
     <link rel="stylesheet" href="/web/css/customdialogs.css" type="text/css">
-    <link rel="stylesheet" href="/web/css/app.css" type="text/css">
     <link rel="stylesheet" href="/web/css/nav.css" type="text/css">
+    <link rel="stylesheet" href="/web/css/app.css" type="text/css">
 </head>
 <body>
 <nav>
@@ -49,22 +49,33 @@
     </div>
 
     <div id="modalLend" title="Lend a Book">
-       <form data-bind="submit: lendToBorrower">
-                <input class='hide' id="lend_id" type="text" name="id"/>
-                <label>Title:</label><div class="lend_title"></div>
-                <label>Author:</label><div class="lend_author"></div>
-                <label>Borrower:</label><select name="borrower_id" id="lend_borrower_id" data-bind="options: borrowerList,
-               optionsText: function(item) {
-                   return item.id + ' ' + item.name
-               },
-               optionsValue: function(item) {
-                    return item.id;
-               },
-               value: selectedBorrower,
-               optionsCaption: 'Choose...'"></select>
-                <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label>
-                <img id="lend_img" height="105" width="77">
-            <button id="lendSubmit" type="submit">Submit</button>
+       <form class="pure-form-stacked" data-bind="submit: lendToBorrower">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label>Title:</label><div class="lend_title"></div>
+                </div>
+                <div class="pure-control-group">
+                    <label>Author:</label><div class="lend_author"></div>
+                </div>
+                <div class="pure-control-group">
+                    <label>Title:</label><div class="lend_title"></div>
+                </div>
+                    <input class='hide' id="lend_id" type="text" name="id"/>
+
+
+                    <label>Borrower:</label><select name="borrower_id" id="lend_borrower_id" data-bind="options: borrowerList,
+                   optionsText: function(item) {
+                       return item.id + ' ' + item.name
+                   },
+                   optionsValue: function(item) {
+                        return item.id;
+                   },
+                   value: selectedBorrower,
+                   optionsCaption: 'Choose...'"></select>
+                    <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label>
+                    <img id="lend_img" height="105" width="77">
+                <button id="lendSubmit" type="submit">Submit</button>
+            </fieldset>
         </form>
     </div>
   <!--   <div class='bookPic'><img src = "http://julioh.com/Tech-Specs_files/iStock1502751Large-B-flat.jpg" /></div> -->
