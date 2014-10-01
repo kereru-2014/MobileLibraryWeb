@@ -1,12 +1,18 @@
 /*devise log in/log out */
-ul.hmenu {
+
+nav{
+  height: 50px;
+}
+
+nav ul {
   font-family: 'Lato', sans-serif;
   list-style: none;
   margin: 0 0 2em;
   padding: 0;
 }
 
-ul.hmenu li {
+nav ul li {
+  float:left;
   font-family: 'Lato', sans-serif;
   display: inline;
 }

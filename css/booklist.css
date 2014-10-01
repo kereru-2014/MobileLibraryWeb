@@ -1,11 +1,13 @@
+html, body{
+  height: 100%;
+}
+
 /*#booksdisplay{
   width:25%;
   height:25%;
   padding-bottom: 25%;
 }*/
-html, body{
-  height: 100%;
-}
+
 
 /*#innercontent{
  position: absolute;
@@ -20,28 +22,19 @@ html, body{
   display: none;
 }
 
-#wrap h1{
-  text-align: center;
-  font-family: 'Lato', sans-serif;
-}
-
-.buttonscontainer{
-  margin-top: 10px;
-  padding-left: 25px;
-}
-
 #wrap{
   overflow: hidden;
   padding-left: 25px;
 }
 
-.buttonWrap{
- width: 50px;
- margin: 0 auto;
+#wrap h1{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
 }
 
-.buttonWrap div{
-  float:left;
+.buttonWrap{
+  width: 100px;
+  margin: 0 auto;
 }
 
 .test{
@@ -52,9 +45,9 @@ html, body{
   font-family: 'Lato', sans-serif;
 }
 
-img {
-  padding-right: 25px;
-  padding-top: 25px;
+.buttonscontainer{
+  margin-top: 10px;
+  padding-left: 25px;
 }
 
 .bookcontainer {
@@ -62,6 +55,10 @@ img {
     position: relative;
 }
 
+img {
+  padding-right: 25px;
+  padding-top: 25px;
+}
 
 .closeglyph {
     position: absolute;
@@ -69,8 +66,6 @@ img {
     right: -5px;
     opacity: 0.5;
 }
-
-
 
 @media only screen and (max-width: 480px) {
   #box{
