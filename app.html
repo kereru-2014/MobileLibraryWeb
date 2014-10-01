@@ -65,10 +65,10 @@
                         return item.id;
                    },
                    value: selectedBorrower,
-                   optionsCaption: 'Choose...'" size="borrowerList.length"></select>
+                   optionsCaption: 'Choose...'" ></select><br>
+                    <img id="lend_img" height="105" width="77"><br><br>
+                    <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label><br>
 
-                    <label>Lend for:</label><select data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><label>weeks</label>
-                    <img id="lend_img" height="105" width="77">
                 <button id="lendSubmit" type="submit">Submit</button>
             </form>
         </div>

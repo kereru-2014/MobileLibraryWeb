@@ -65,6 +65,7 @@ function HomeViewModel() {
 
     self.newBorrower.subscribe(function (data) {
         PersistBorrower($(data).serializeObject());
+        GetAllBorrowers(mapBorrowerJson);
     });
 
     self.searchForBook.subscribe(function(data){
@@ -73,7 +74,7 @@ function HomeViewModel() {
     });
 
     self.bookToDelete = function(){
-        var result = confirm("Want to delete?");
+        var result = confirm("Please confirm that you wish to delete '" + this.title() + "'?");
         if (result==true) {
             DeleteBook(this.id());
         }
@@ -117,12 +118,8 @@ function HomeViewModel() {
 
     function mapBorrowerJson(allData) {
     var mappedTasks = $.map(allData, function (item) { return new Borrower(item); });
-    var arrayLength = mappedTasks.length;
-    var dropdownlist = [];
-    for (var i = 0; i < arrayLength; i++) {
-         dropdownlist.push({ id: $(mappedTasks)[i].id(), name: $(mappedTasks)[i].name() });
-        };
-        self.borrowerList(dropdownlist);
+    var dropdownlist = CreateLenderList(mappedTasks);
+       self.borrowerList(dropdownlist);
     };
 
     function mapSearchJson(allData){
@@ -159,4 +156,13 @@ var ClearBorrowerModal = function(){
     $( "#modalBorrowerEmail" ).val("");
     $( "#modalBorrowerPhone_number" ).val("");
 }
+
+function CreateLenderList(mappedTasks) {
+    var arrayLength = mappedTasks.length;
+    var dropdownlist = [];
+    for (var i = 0; i < arrayLength; i++) {
+         dropdownlist.push({ id: $(mappedTasks)[i].id(), name: $(mappedTasks)[i].name() });
+        };
+        return dropdownlist;
+    }
 
