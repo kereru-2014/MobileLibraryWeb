@@ -1,20 +1,28 @@
 html, body{
   height: 100%;
+  margin:0;
+  padding:0;ß
 }
 
 section{
   width: 100%;
 }
 
-#allBookWrapper{
+.allBookWrapper{
   margin: 0 auto;
-  max-width: 1366px;
+  max-width: 1024px;
   padding: 0 2%;
 }
 
-.bookListWrapper {
+.GoogleListWrapper{
+  background-color: red;
+}
+
+#lineBetweenBooks{
+  display: block;
+  height: 30px;
   width: 100%;
-  margin: 0 auto;
+  background-color: red;
 }
 
 .pure-button{
@@ -27,13 +35,14 @@ section{
 
 #wrap{
   overflow: hidden;
-  padding-left: 25px;
+  background-color: yellow;
 }
 
 #wrap h1{
   text-align: center;
   font-family: 'Lato', sans-serif;
-  font-size: 2em;
+  font-size: 3em;
+  margin: 1% 0;
 }
 
 .buttonWrap{
@@ -43,6 +52,28 @@ section{
 
 .buttonWrap div a {
   margin-left: 25%
+}
+
+#searchBookBox {
+  width: 300px;
+  margin: 0 auto;
+}
+
+#searchBookBox input {
+height:  2em;
+}
+
+#searchBookBox form {
+float: left;
+}
+
+#clearSearchBooks {
+  margin-top: 3.8px;
+  float: left;
+}
+
+.search_button{
+height: 2em;
 }
 
 .test{
@@ -100,6 +131,23 @@ html[xmlns] .clearfix {
 
 * html .clearfix {
     height: 1%;
+}
+
+.container{
+  max-width: 1024px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container .wrapper{
+  padding: 105px 0;
+}
+
+footer {
+  margin-top: 200px;
+  background-color: green;
 }
 
 @media only screen and (max-width: 480px) {
