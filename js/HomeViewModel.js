@@ -59,7 +59,6 @@ function HomeViewModel() {
 
     self.addGoogleBook.subscribe(function (data) {
         PersistBook($(data).serializeObject());
-        console.log(data)
         GetAllBooks(mapJson);
     });
 
@@ -70,7 +69,6 @@ function HomeViewModel() {
 
     self.searchForBook.subscribe(function(data){
         ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
-        console.log(data)
     });
 
     self.bookToDelete = function(){
