@@ -2,7 +2,6 @@ html, body{
   height: 100%;
   margin:0;
   padding:0;
-
 }
 
 section{
@@ -62,11 +61,11 @@ section{
 }
 
 #searchBookBox input {
-height:  2em;
+  height:  2em;
 }
 
 #searchBookBox form {
-float: left;
+  float: left;
 }
 
 #clearSearchBooks {
@@ -75,7 +74,7 @@ float: left;
 }
 
 .search_button{
-height: 2em;
+  height: 2em;
 }
 
 .test{
@@ -107,11 +106,23 @@ height: 2em;
   padding: 12px;
 }
 
+#lend_img {
+  padding-right: 10px;
+}
+
 .closeglyph {
     position: absolute;
     top: -5px;
     right: -5px;
     opacity: 0.5;
+}
+
+.floatLeft{
+  float: left;
+}
+
+.floatRight {
+  float: right;
 }
 
 .clearfix:after {

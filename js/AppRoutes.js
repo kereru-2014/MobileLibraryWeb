@@ -23,8 +23,8 @@
         autoOpen: false,
         draggable: false,
         resizable: false,
-        width: 647.21,
-        height: 400,
+        width: 500,
+        height: 300,
         autoOpen: false,
         show: {
           effect: "clip",

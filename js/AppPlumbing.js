@@ -1,4 +1,3 @@
-
 function GetAllBooks(callback) {
     $.getJSON("/api/v1/books/", function (data) { callback(data); });
 }
