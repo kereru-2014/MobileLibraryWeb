@@ -486,6 +486,11 @@ button.ui-button::-moz-focus-inner {
 	padding: .4em 1em;
 	position: relative;
 }
+
+.ui-dialog-titlebar{
+	background-color: #ACE5EE;
+}
+
 .ui-dialog .ui-dialog-title {
 	float: left;
 	margin: .1em 0;
@@ -494,6 +499,7 @@ button.ui-button::-moz-focus-inner {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-family: 'Lato', sans-serif;
+	background-color: #ACE5EE;
 }
 .ui-dialog .ui-dialog-titlebar-close {
 	position: absolute;
@@ -857,6 +863,7 @@ body .ui-tooltip {
 	/*border: 1px solid #e78f08;*/
 	background: #FAE7B5 url("images/ui-bg_gloss-wave_35_f6a828_500x100.png") 50% 50% repeat-x;
 		font-weight: bold;
+		background-color: #ACE5EE;
 }
 .ui-widget-header a {
 	color: #ffffff;
