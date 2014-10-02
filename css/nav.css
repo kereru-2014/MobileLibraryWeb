@@ -19,3 +19,21 @@ nav ul li {
   display: inline;
 }
 
+/* this is link that look like button? */
+
+#editRegistrationButton a {
+ border: none;
+ margin-left: 5px;
+ padding: 3px 6px 3px;
+ font-size: 16px;
+ text-decoration: none;
+ color: #000;
+ line-height: 26px;
+ background-color: #c0c0c0;
+ border: 1px solid gray;
+ font-family: sans-serif;
+}
+
+form.button_to div input {
+  border: 1px solid gray;
+}
