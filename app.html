@@ -43,7 +43,7 @@
     <div id="searchBookBox">
         <form data-bind="submit: searchForBook">
             <input type="search" name="googleBooksSearch">
-             <button id="searchForBookBarButton" class="search_button" type="submit"><i class="fa fa-search"></i></button>
+            <button id="searchForBookBarButton" class="search_button" type="submit"><i class="fa fa-search"></i></button>
         </form>
         <button id="clearSearchBooks" class="search_button" data-bind="click: clearsearches" type="submit"><i class="fa fa-ban"></i></button>
     </div>
@@ -79,7 +79,7 @@
                     <select class="floatRight" data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select>
                 </div>
                 <input type="hidden" id="lend_id" type="text" name="id"/>
-                <button id="lendSubmit" class="floatRight" type="submit">Submit</button>
+                <button id="lendSubmit" class="floatRight" type="submit">Lend</button>
             </fieldset>
         </form>
     </div>
@@ -104,41 +104,76 @@
                     <input id="modalAddimage_url" class="floatRight"  type="text" name="image_url">
                 </div>
             </fieldset>
-            <button id="persistNewBookButton" class="floatRight" type="submit">Add</button>
+            <button id="persistNewBookButton" class="floatRight padRight11" type="submit">Add</button>
         </form>
     </div>
 
-   <div id="modalAddBorrower" title="Add Borrower">
-       <form data-bind="submit: newBorrower">
-            <label for="name">Name:</label> <input id="modalBorrowerName" type="text" name="name">
-            <label for="email">Email:</label> <input id="modalBorrowerEmail" type="text" name="email">
-            <label for="phone_number">Phone No:</label> <input id="modalBorrowerPhone_number" type="text" name="phone_number">
-            <button id="persistNewBorrowerButton" type="submit">Submit</button>
+    <div id="modalAddBorrower" title="Add Borrower">
+        <form class="modal" data-bind="submit: newBorrower">
+            <fieldset>
+                <div>
+                    <label for="name">Name:</label>
+                    <input id="modalBorrowerName" class="floatRight" type="text" name="name">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input id="modalBorrowerEmail" class="floatRight"  type="text" name="email">
+                </div>
+                <div>
+                    <label for="phone_number">Phone No:</label>
+                    <input id="modalBorrowerPhone_number" class="floatRight"  type="text" name="phone_number">
+                </div>
+            </fieldset>
+            <button id="persistNewBorrowerButton" class="floatRight padRight11" type="submit">Add</button>
         </form>
     </div>
 
     <div id="modalReturn" title="Return a Book">
-        <form data-bind="submit: returnABook">
-            <input class='hide' id="return_id" type="text" name="id"/>
-            <label>Title:</label><div class="return_title"></div>
-            <label>Author:</label><div class="return_author"></div>
-            <label>Borrower:</label><div id="return_borrower_id"></div>
-            <img id="return_img" height="105" width="77">
-            <button id="returnSubmit" type="submit">Submit</button>
+        <form class="modal" data-bind="submit: returnABook">
+            <fieldset>
+                <div class=" floatLeft">
+                    <img id="return_img" height="136" width="100">
+                </div>
+                <div>
+                    <label>Title:</label>
+                    <span class="return_title floatRight"></span>
+                </div>
+                <div>
+                    <label>Author:</label>
+                    <span class="return_author floatRight"></span>
+                </div>
+                <div>
+                    <label>Borrower:</label>
+                    <span id="return_borrower_id" class="floatRight"></span>
+                </div>
+                <button id="returnSubmit" class="floatRight" type="submit">Return</button>
+            </fieldset>
         </form>
     </div>
 
     <div id="modalGoogleBook" title="Add Book">
-        <form data-bind="submit: addGoogleBook">
-            <label>Title:</label><input type="text" name="title" class="google_title"/>
-            <label>Author:</label><input type="text" name="author" class="google_author">
-            <input type="text" name="image_url" class="hide google_image">
-            <label>ISBN:</label><input type="text" name="isbn" class="google_isbn">
-            <!-- <img data-bind='attr: {src: google_image}' height="105" width="77"> -->
-            <button id="persistGoogleBookButton" type="submit">Submit</button>
+        <form class="modal" data-bind="submit: addGoogleBook">
+            <fieldset>
+                <div>
+                    <label for="title">Title:</label>
+                    <input class="google_title floatRight" type="text" name="title">
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input class="google_author floatRight"  type="text" name="author">
+                </div>
+                <div>
+                    <label for="ISBN">ISBN:</label>
+                    <input class="google_isbn floatRight"  type="text" name="ISBN">
+                </div>
+                <div>
+                    <label for="image_url">Image Url:</label>
+                    <input class="google_image floatRight"  type="text" name="image_url">
+                </div>
+            </fieldset>
+            <button id="persistGoogleBookButton" class="floatRight padRight11" type="submit">Add</button>
         </form>
     </div>
-
 
     <div class="allBookWrapper">
         <div class="GoogleListWrapper clearfix">

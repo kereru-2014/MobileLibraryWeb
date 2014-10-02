@@ -23,7 +23,7 @@
         autoOpen: false,
         draggable: false,
         resizable: false,
-        width: 500,
+        width: 600,
         height: 300,
         autoOpen: false,
         show: {
