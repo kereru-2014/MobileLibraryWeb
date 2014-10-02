@@ -74,7 +74,9 @@
                    optionsCaption: 'Choose...'"></select>
                 </div>
                 <div>
-                    <label>Lend for:</label><select class="floatRight" data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select><span class="floatRight" >weeks</span>
+                    <label>Lend for:</label>
+                    <span class="floatRight">weeks</span>
+                    <select class="floatRight" data-bind="options: lendOptionsArray, value: lendOptionsValue", id="reminder_date", type="text", name="reminder_date"></select>
                 </div>
                 <input type="hidden" id="lend_id" type="text" name="id"/>
                 <button id="lendSubmit" class="floatRight" type="submit">Submit</button>

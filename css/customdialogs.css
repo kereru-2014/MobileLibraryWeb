@@ -2,6 +2,14 @@
 
 /*ui-dialog-titlebar: The title bar containing the dialog's title and close button.*/
 
+.ui-widget-header {
+  background: #ACE5EE;
+}
+
+.ui-dialog .ui-dialog-title {
+  font-family: 'Lato', sans-serif;
+}
+
 /*ui-dialog-title: The container around the textual title of the dialog.*/
 
 /*ui-dialog-titlebar-close: The dialog's close button.*/

@@ -498,8 +498,6 @@ button.ui-button::-moz-focus-inner {
 	width: 90%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-family: 'Lato', sans-serif;
-	background-color: #ACE5EE;
 }
 .ui-dialog .ui-dialog-titlebar-close {
 	position: absolute;
