@@ -15,15 +15,23 @@ section{
   padding: 0 2%;
 }
 
-.GoogleListWrapper{
-  background-color: red;
+
+.fa-user{
+  color:black;
 }
+
+.fa-book{
+  color: black;
+}
+
+/*.GoogleListWrapper{
+  background-color: red;
+}*/
 
 #lineBetweenBooks{
   display: block;
   height: 30px;
   width: 100%;
-  background-color: red;
 }
 
 .pure-button{
@@ -36,7 +44,7 @@ section{
 
 #wrap{
   overflow: hidden;
-  background-color: yellow;
+  background-color: #ACE5EE;
 }
 
 #wrap h1{
@@ -59,6 +67,7 @@ section{
 #searchBookBox {
   width: 300px;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 #searchBookBox input {
@@ -149,7 +158,7 @@ html[xmlns] .clearfix {
 
 footer {
   margin-top: 250px;
-  background-color: green;
+
 }
 
 @media only screen and (max-width: 1050px) and (min-width: 651px){
