@@ -137,6 +137,7 @@ function HomeViewModel() {
     }
     function googleSearch(data){
         ApiGoogleBooksSearch($(data).serializeObject(),mapSearchJson);
+        GetAllBooks(mapJson);
     }
 
 }

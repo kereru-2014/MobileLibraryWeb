@@ -85,12 +85,26 @@
     </div>
 
     <div id="modalAddBook" title="Add Book">
-        <form data-bind="submit: newBook">
-            <label for="title">Title:</label> <input id="modalAddTitle" type="text" name="title">
-            <label for="author">Author:</label> <input id="modalAddAuthor" type="text" name="author">
-            <label for="ISBN">ISBN:</label> <input id="modalAddISBN" type="text" name="ISBN">
-            <label for="image_url">Image:</label> <input id="modalAddimage_url" type="text" name="image_url">
-            <button id="persistNewBookButton" type="submit">Add</button>
+        <form class="modal" data-bind="submit: newBook">
+            <fieldset>
+                <div>
+                    <label for="title">Title:</label>
+                    <input id="modalAddTitle" class="floatRight" type="text" name="title">
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input id="modalAddAuthor" class="floatRight"  type="text" name="author">
+                </div>
+                <div>
+                    <label for="ISBN">ISBN:</label>
+                    <input id="modalAddISBN" class="floatRight"  type="text" name="ISBN">
+                </div>
+                <div>
+                    <label for="image_url">Image:</label>
+                    <input id="modalAddimage_url" class="floatRight"  type="text" name="image_url">
+                </div>
+            </fieldset>
+            <button id="persistNewBookButton" class="floatRight" type="submit">Add</button>
         </form>
     </div>
 
