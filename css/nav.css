@@ -23,7 +23,7 @@ nav ul li {
 
 #editRegistrationButton a {
  border: none;
- margin-left: 5px;
+ margin-left: 10px;
  padding: 3px 6px 3px;
  font-size: 16px;
  text-decoration: none;
@@ -34,6 +34,23 @@ nav ul li {
  font-family: sans-serif;
 }
 
+#editRegistrationButton a:focus {
+ border: none;
+ margin-left: 10px;
+ padding: 3px 6px 3px;
+ font-size: 16px;
+ text-decoration: none;
+ color: #000;
+ line-height: 26px;
+ background-color: #c0c0c0;
+ border: 1px solid gray;
+ font-family: sans-serif;
+ outline: 4px #5b9dd9 auto;
+}
+
+
+
 form.button_to div input {
   border: 1px solid gray;
+  margin-left: 10px;
 }
